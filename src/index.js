@@ -1,8 +1,21 @@
-const app = require('express')();
+const express = require('express');
+const path = require('path');
 
-app.get('/', (req, res) =>
-    res.json({ message: 'Docker is Easy' })
-);
+// init app
+const app = express();
 
+
+// load view engine
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+// home route
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
+// start server
 const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`app listening on http://localhost:${port}`))
+app.listen(port, () => {
+    console.log(`app listening on http://localhost:${port}`)
+});
