@@ -1,5 +1,13 @@
 # SWE-Pioneers
-Welcome to the SWE-Pioneers Repository. 
+SWE-Pioneers | Software Engineering Coursework
+
+
+Members:
+* Rezwan
+* Tobi
+* Neo
+* Manasse
+* Abdullahi
 
 This readme will contain links to various parts of our repo 
 for navigation purposes 
