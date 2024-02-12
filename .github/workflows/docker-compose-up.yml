@@ -8,7 +8,7 @@ on:
   
 jobs:
   docker_compose_up:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
