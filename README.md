@@ -1,5 +1,11 @@
 # SWE-Pioneers
 SWE-Pioneers | Software Engineering Coursework
+Members:
+* Rezwan
+* Tobi
+* Neo
+* Manasse
+* Abdullahi
 
 
 
