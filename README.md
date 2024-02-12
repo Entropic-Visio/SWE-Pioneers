@@ -1,5 +1,7 @@
 # SWE-Pioneers
 SWE-Pioneers | Software Engineering Coursework
+
+
 Members:
 * Rezwan
 * Tobi
@@ -7,11 +9,13 @@ Members:
 * Manasse
 * Abdullahi
 
+This readme will contain links to various parts of our repo 
+for navigation purposes 
 
+TO get started and have a better understanding of our Reposistory and whole project in general please visit our Wiki
 
+Wiki :
+https://github.com/Entropic-Visio/swe-pioneers/wiki
 
-
-### Contributors
-<a href="https://github.com/Entropic-Visio/swe-pioneers/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Entropic-Visio/swe-pioneers"/>
-</a>
+SWE-Pioneers | Software Engineering Coursework
+bow!
