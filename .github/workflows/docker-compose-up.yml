@@ -16,3 +16,6 @@ jobs:
       
       - name: Docker Compose
         run: docker-compose up -d
+      
+      - name: Stop Docker Services
+        run: docker-compose down
