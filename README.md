@@ -4,7 +4,7 @@ SWE-Pioneers | Software Engineering Coursework
 
 The followng are the members for the SWE-Pioneers along with the Identification numbers:
 * Rezwan (RAH22529097)
-* Tobi.
+* Tobi (POP22529288)
 * Neo(MSI2252500)
 * Manasse (VIT22539882)
 * Abdullahi(ROG22528603)
