@@ -2,20 +2,19 @@
 SWE-Pioneers | Software Engineering Coursework
 
 
-Members:
-* Rezwan
-* Tobi
-* Neo
-* Manasse
-* Abdullahi
+The followng are the members for the SWE-Pioneers along with the Identification numbers:
+* Rezwan (RAH22529097)
+* Tobi.
+* Neo(MSI2252500)
+* Manasse.
+* Abdullahi(ROG22528603)
 
-This readme will contain links to various parts of our repo 
-for navigation purposes 
+This Readme we provide will contain links to various parts of our repo to streamline the navigation thoughout the process. 
 
-TO get started and have a better understanding of our Reposistory and whole project in general please visit our Wiki
+Therefore to get started and have a better understanding of our Reposistory and whole project in general please visit our Wiki through the provided link below.
 
-Wiki :
+Wiki link:
 https://github.com/Entropic-Visio/swe-pioneers/wiki
 
-SWE-Pioneers | Software Engineering Coursework
-bow!
+SWE-Pioneers | Software Engineering Coursework.
+bow! 
