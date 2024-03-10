@@ -1,12 +1,10 @@
-FROM node:20
+FROM node:latest
 
 WORKDIR /app
 
-COPY package.json* ./
-
-RUN npm install
-
 COPY . .
+
+RUN npm install && npm install -g supervisor
 
 ENV PORT=5000
 
