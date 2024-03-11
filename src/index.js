@@ -20,7 +20,7 @@ const citiesRoute = require('./routes/cities');
 
 app.use("/", homeRoute);
 app.use("/ping", pingRoute);
-app.use('/cities', citiesRoute);
+app.use("/cities", citiesRoute);
 
 // start server
 app.listen(port, () => {
