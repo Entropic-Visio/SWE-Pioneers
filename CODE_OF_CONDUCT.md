@@ -70,3 +70,9 @@ Reflective Essay & Supervision - They would be required to write a reflective es
 
 ### Closing Statement
 As a company we are committed to continuous improvement, which encompasses our Code of Conduct. We recognize that the document is not absolute and welcome suggestions for its enhancement and improvement. We welcome suggestions for its enhancement. We expect your workers to build a healthy work environment which thrives of collaboration. We want to achieve these goals through mutual respect and great effort.
+
+
+### Signed By
+<a href="https://github.com/Entropic-Visio/swe-pioneers/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Entropic-Visio/swe-pioneers" />
+</a>

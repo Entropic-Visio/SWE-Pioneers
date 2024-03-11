@@ -1,10 +1,14 @@
 # SWE-Pioneers
 SWE-Pioneers | Software Engineering Coursework
 
+Pioneers a website designed to scope the world with numbers.
+The aim of the pioneers website is to represent data of the world, such as continents, countries, cities, districts etc.
+
+
 
 The followng are the members for the SWE-Pioneers along with the Identification numbers:
 * Rezwan (RAH22529097)
-* Tobi.
+* Tobi (POP22529288)
 * Neo(MSI2252500)
 * Manasse (VIT22539882)
 * Abdullahi(ROG22528603)
