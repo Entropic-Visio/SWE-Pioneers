@@ -17,10 +17,12 @@ app.use(express.static("static"));
 const homeRoute = require('./routes/home');
 const pingRoute = require('./routes/ping');
 const citiesRoute = require('./routes/cities');
+const countriesRoute = require('./routes/countries');
 
 app.use("/", homeRoute);
 app.use("/ping", pingRoute);
-app.use("/cities", citiesRoute);
+app.use('/cities', citiesRoute);
+app.use('/countries', countriesRoute)
 
 // start server
 app.listen(port, () => {
