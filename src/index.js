@@ -21,10 +21,10 @@ const countriesRoute = require('./routes/countries');
 
 app.use("/", homeRoute);
 app.use("/ping", pingRoute);
-app.use('/cities', citiesRoute);
-app.use('/countries', countriesRoute)
+app.use("/cities", citiesRoute);
+app.use("/countries", countriesRoute)
 
 // start server
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on port http://localhost:${port}`);
 });
