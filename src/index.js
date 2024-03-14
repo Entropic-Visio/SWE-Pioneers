@@ -15,11 +15,15 @@ app.use(express.static("static"));
 
 // routes
 const homeRoute = require('./routes/home');
+const aboutRoute = require('./routes/about');
+const contactRoute = require('./routes/contact');
 const pingRoute = require('./routes/ping');
 const citiesRoute = require('./routes/cities');
 const countriesRoute = require('./routes/countries');
 
 app.use("/", homeRoute);
+app.use("/about", aboutRoute);
+app.use("/contact", contactRoute);
 app.use("/ping", pingRoute);
 app.use("/cities", citiesRoute);
 app.use("/countries", countriesRoute)
