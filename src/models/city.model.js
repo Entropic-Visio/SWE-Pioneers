@@ -1,26 +1,23 @@
-const db = require('../services/db.js');
+const cityServices = require('../services/city.services.js');
 
 class City {
-    id;
-    name;
-    countryCode;
-    district;
-    population;
-
     constructor(id) {
-        this.id = id
+        this.id = parseInt(id);
+        this.name = null;
+        this.countryCode = null;
+        this.district = null;
+        this.population = null;
     }
 
-    async getDetails() {
+    async getCityInformation() {
         if (typeof this.name !== "string") {
-            const sql = "SELECT * FROM `city` WHERE ID = ?";
             try {
-                const [results, fields] = await db.query(sql, [this.id]);
-                if (results.length > 0) {
-                    this.name = results[0].Name;
-                    this.countryCode = results[0].CountryCode;
-                    this.district = results[0].District;
-                    this.population = results[0].Population;
+                const result = await cityServices.getCityById(this.id);
+                if (result) {
+                    this.name = result.Name;
+                    this.countryCode = result.CountryCode;
+                    this.district = result.District;
+                    this.population = parseInt(result.Population);
                 } else {
                     throw new Error("City not found");
                 }
@@ -32,6 +29,4 @@ class City {
     }
 }
 
-module.exports = {
-    City
-}
+module.exports = { City };
