@@ -4,17 +4,15 @@ const router = express.Router()
 const mysql = require('mysql2');
 const db = require('../services/db.js');
 
-// Leave Router "/" as it is set up in index.js or else you'll have to write e.g /countries/countries to access this route. 
-router.get("/", (req, res) => {
-    db.query("SELECT * FROM `country`", (err, rows, fields) => { // query database to reterieve all countries
-      
-      if (err) {
-        console.error(err)
-        return res.status(500).json({ error: "Internal Server Error"});
-      }
-      console.log(`/country: ${rows.length} rows`); // redundant line tbh we can remove. just prints number of rows not needed.
-      return res.send(rows); // respond by sending all rows in database
-    });
+router.get("/", async (req, res) => {
+  try {
+    const [rows, fields] = await db.query("SELECT * FROM `country`");
+    console.log(`/cities: ${rows.length} rows`);
+    return res.send(rows);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).render("500");
+  }
 });
 
 module.exports = router; // module.exports the above code to the router which handles "routing".
