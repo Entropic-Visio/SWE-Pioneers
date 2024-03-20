@@ -10,10 +10,9 @@ class City {
     }
 
     async getCityInformation() {
-        if (typeof this.name !== "string") {
-            try {
-                const result = await cityServices.getCityById(this.id);
-                if (result) {
+        if (typeof this.name !== "string") { // if the city name isnt a string
+                const result = await cityServices.getCityById(parseInt(this.id)); // query the database
+                if (result) { // if the result is not null initalize the rest of the values
                     this.name = result.Name;
                     this.countryCode = result.CountryCode;
                     this.district = result.District;
@@ -21,10 +20,6 @@ class City {
                 } else {
                     throw new Error("City not found");
                 }
-            } catch (error) {
-                console.error("Error fetching city details:", error);
-                throw new Error("Error fetching city details");
-            }
         }
     }
 }

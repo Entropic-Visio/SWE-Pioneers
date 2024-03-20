@@ -15,4 +15,4 @@ router.get("/", async (req, res) => {
   }
 });
 
-module.exports = router; // module.exports the above code to the router which handles "routing".
+module.exports = router;

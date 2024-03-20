@@ -12,12 +12,18 @@ async function getAllCities() {
     }
 }
 
-async function getCityById(cityID) {
-    const sql = "SELECT * FROM `city` WHERE ID = ?";
+/*
+Get Specific City using SQL query using the cityID
+
+*/
+async function getCityById(cityID) { 
+    console.log("City ID:", cityID);
+    const sql = "SELECT * FROM `city` WHERE ID = ?"; // Query
+
     try {
-        const [results, fields] = await db.query(sql, [cityID]);
-        console.log(results[0]);
-        return results[0];
+        const [rows, fields] = await db.query(sql, [cityID]); // Query the Database
+        console.log(rows[0]);
+        return rows[0]; // Return the Value
     } catch (error) {
         console.error("Error Fetching City by ID: ", error);
         throw new Error("Failed to Fetch City by ID");
