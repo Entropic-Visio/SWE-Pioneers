@@ -13,12 +13,12 @@ jobs:
             sudo apt-get update
             sudo apt-get install -y docker-ce docker-ce-cli containerd.io
       - run:
+          name: Check Docker Daemon Status
+          command: docker info
+      - run:
           name: Build and Run Docker Compose
           command: |
             docker-compose -f docker-compose.yml up -d
-      - run:
-          name: Check Docker Daemon Status
-          command: docker info
 
 
 
