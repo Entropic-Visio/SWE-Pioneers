@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   docker_compose_up:
     docker:
-      - image: circleci/node@5.2.0
+      - image: cimg/node:21.7.1
 
     working_directory: ~/repo
     steps:
