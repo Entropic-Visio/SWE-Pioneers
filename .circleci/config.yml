@@ -16,7 +16,9 @@ jobs:
           name: Build and Run Docker Compose
           command: |
             docker-compose -f docker-compose.yml up -d
-
+      - run:
+          name: Check Docker Daemon Status
+          command: docker info
 
 
 
