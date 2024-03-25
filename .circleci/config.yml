@@ -4,30 +4,23 @@ jobs:
   docker_compose_up:
     docker:
       - image: cimg/node:21.6.2
-
-  working_directory: ~/repo
-
-  steps:
-    - checkout
-
-    - runs:
-      name: Docker Compose Up
-      command: |
-        docker-compose up -d
-
-    - runs:
-      name: Stop Docker Services
-      command: |
-        docker-compose down
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Docker Compose Up
+          command: docker-compose up -d
+      - run:
+          name: Stop Docker Services
+          command: docker-compose down
 
 workflows:
-  version:
+  version: 2
   docker_compose_up:
     jobs:
       - docker_compose_up:
-        filters:
-          branches:
-            only:
-              - main
-              - develop
-  
+          filters:
+            branches:
+              only:
+                - main
+                - develop
