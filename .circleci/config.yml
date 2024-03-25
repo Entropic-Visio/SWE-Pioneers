@@ -1,16 +1,34 @@
-version: 2
+version: 2.1
+
 jobs:
   build:
-    working_directory: ~/SWE
     docker:
-    - image: cimg/node:its
+      - image: cimg/node:21.7.1  
+    working_directory: ~/repo
     steps:
-    - checkout:
-        path: ~/SWE
-    - run:
-        command: npm install
+      - checkout
+      - run:
+          name: Install Docker
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+      - run:
+          name: Build and Run Docker Compose
+          command: |
+            docker-compose -f docker-compose.yml up -d
+      - run:
+          name: Check Docker Daemon Status
+          command: docker info
+
+
+
 workflows:
   version: 2
-  workflow:
+  build_and_test:
     jobs:
-    - build
+      - build:
+          filters:
+            branches:
+              only:
+                - main
+                - develop
