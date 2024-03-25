@@ -1,24 +1,30 @@
 version: 2.1
 
 jobs:
-  docker_compose_up:
+  build:
     docker:
-      - image: cimg/node:21.6.2
+      - image: cimg/node:21.7.1  
     working_directory: ~/repo
     steps:
       - checkout
       - run:
-          name: Docker Compose Up
-          command: docker-compose up -d
+          name: Install Docker
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y docker-ce docker-ce-cli containerd.io
       - run:
-          name: Stop Docker Services
-          command: docker-compose down
+          name: Build and Run Docker Compose
+          command: |
+            docker-compose -f docker-compose.yml up -d
+
+
+
 
 workflows:
   version: 2
-  docker_compose_up:
+  build_and_test:
     jobs:
-      - docker_compose_up:
+      - build:
           filters:
             branches:
               only:
