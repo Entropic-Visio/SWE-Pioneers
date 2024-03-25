@@ -37,10 +37,10 @@
 .nav-logo{
     display: inline-block;
     vertical-align: middle;
-    max-width: 7%;
+    max-width: 4;
 }
 
 .nav-logo__img{
     height: auto;
-    width: 100%;
+    width: 20px;
 }
