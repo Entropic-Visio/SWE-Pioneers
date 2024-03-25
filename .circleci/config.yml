@@ -1,12 +1,16 @@
-version: 2.1
-orbs:
-  node: circleci/node@4.7.0
+version: 2
 jobs:
   build:
     working_directory: ~/SWE
     docker:
     - image: cimg/node:its
     steps:
-      - checkout:
-          path: ~/SWE
-      - run: npm install
+    - checkout:
+        path: ~/SWE
+    - run:
+        command: npm install
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build
