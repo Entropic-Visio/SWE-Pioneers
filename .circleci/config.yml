@@ -1,32 +1,29 @@
 version: 2.1
 
 jobs:
-  build:
+  docker_compose_up:
     docker:
-      - image: cimg/node:21.7.1  
+      - image: circleci/node@5.2.0
+
     working_directory: ~/repo
     steps:
       - checkout
+      
       - run:
-          name: Install Docker
+          name: Docker Compose Up
           command: |
-            sudo apt-get update
-            sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+            docker-compose up -d
+      
       - run:
-          name: Check Docker Daemon Status
-          command: docker info
-      - run:
-          name: Build and Run Docker Compose
+          name: Stop Docker Services
           command: |
-            docker-compose -f docker-compose.yml up -d
-
-
+            docker-compose down
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build:
+      - docker_compose_up:
           filters:
             branches:
               only:
