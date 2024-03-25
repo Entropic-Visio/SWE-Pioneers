@@ -1,16 +1,33 @@
-version: 2
+version: 2.1
+
 jobs:
-  build:
-    working_directory: ~/SWE
+  docker_compose_up:
     docker:
-    - image: cimg/node:its
-    steps:
-    - checkout:
-        path: ~/SWE
-    - run:
-        command: npm install
+      - image: cimg/node:21.6.2
+
+  working_directory: ~/repo
+
+  steps:
+    - checkout
+
+    - runs:
+      name: Docker Compose Up
+      command: |
+        docker-compose up -d
+
+    - runs:
+      name: Stop Docker Services
+      command: |
+        docker-compose down
+
 workflows:
-  version: 2
-  workflow:
+  version:
+  docker_compose_up:
     jobs:
-    - build
+      - docker_compose_up:
+        filters:
+          branches:
+            only:
+              - main
+              - develop
+  
