@@ -3,7 +3,7 @@ const express = require("express"); // Import the Express framework to help with
 const router = express.Router() // Create a new router object to define routes.
 const mysql = require('mysql2'); // Import the MySQL module to communicate with MySQL databases.
 const db = require('../services/db.js'); // Import the custom database module that likely handles database connection and queries.
-
+const { Country } = require('../models/country.model.js');
 // Define a GET route for the root URL ("/").
 router.get("/", async (req, res) => {
   try {
@@ -19,6 +19,27 @@ router.get("/", async (req, res) => {
   }
 
 
+});
+
+
+router.get("/countryCode/:countryCode", async (req, res) => {
+  try {
+    const countryCode = req.params.countryCode; // city ID
+    
+    const country = new Country(countryCode); // create city object with ID
+    await country.getCountryInformation(); // get the rest of the information from the database.
+
+    if (!country.name) { // if a city wasnt found render the 404.pug page.
+      return res.status(404).render("404");
+    }
+
+    return res.render('country', {country:country}); // render city using city.pug and assign city variable with the city object
+
+  } catch (error) {
+    // If an error occurs during the database query or rendering, log the error to the console.
+    console.log(error)
+    return res.status(500).render("500");
+  }
 });
 // Export the router so it can be used in other parts of the application, typically the main server file.
 module.exports = router;

@@ -20,7 +20,7 @@ class Country {
     }
 
     async getCountryInformation() {
-        if (typeof this.name !== "string") { // if the city name isnt a string
+        if (typeof this.name !== "string") { // if the country name isnt a string
                 const result = await countryService.getCountryByCode(this.countryCodeAlpha3); // query the database
                 if (result) { // if the result is not null initalize the rest of the values
                     this.name = result.Name;
