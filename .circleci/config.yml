@@ -16,11 +16,12 @@ jobs:
   test:
     docker:
       - image: cimg/node:21.7.1
+    working_directory: ~/swe-pioneer/src
     steps:
       - checkout
       - run:
-          name: Go to SRC
-          command: cd src
+          name: Current Directory
+          command: pwd
       - run:
           name: Install Dependencies
           command: npm install
