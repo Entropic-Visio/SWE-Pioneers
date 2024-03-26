@@ -13,7 +13,7 @@ jobs:
           name: Run container
           command: docker-compose up -d
   
-  test:
+  router-tests:
     docker:
       - image: cimg/node:21.7.1
     working_directory: ~/swe-pioneer/src
@@ -27,12 +27,12 @@ jobs:
       - run:
           name: Test City Router
           command: |
-          cd src
-          npx jest
+            cd src
+            npx jest
 
 workflows:
   version: 2
   build:
     jobs:
       - build
-      - test
+      - router-tests
