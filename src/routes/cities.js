@@ -37,7 +37,7 @@ router.get("/id/:id", async (req, res) => {
     return res.render('city', {city:city}); // render city using city.pug and assign city variable with the city object
 
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).render("500");
   }
 });
