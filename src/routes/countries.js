@@ -9,8 +9,8 @@ router.get("/", async (req, res) => {
   try {
     // Asynchronously query the database to select all entries from the `country` table.
     const [rows, fields] = await db.query("SELECT * FROM `country`");
-    console.log(`/cities: ${rows.length} rows`);
-    return res.render('country');
+    console.log(`/countries: ${rows.length} rows`);
+    return res.send(rows);
   } catch (error) {
     // If an error occurs during the database query or rendering, log the error to the console.
     console.error(error);
