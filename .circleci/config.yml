@@ -18,11 +18,12 @@ jobs:
       - image: cimg/node:21.7.1
     steps:
       - checkout
-      - run: cd src
-      - run: npm install
+      - run:
+          name: Go to SRC
+          command: cd src
       - run:
           name: Test City Router
-          command: npm test
+          command: npx jest
 
 workflows:
   version: 2
