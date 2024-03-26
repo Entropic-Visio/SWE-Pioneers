@@ -30,4 +30,4 @@ async function getCityById(cityID) {
     }
 }
 
-module.exports = { getCityById, getAllCities };
+module.exports = { getAllCities, getCityById };

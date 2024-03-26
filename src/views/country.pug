@@ -6,23 +6,25 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
-<<<<<<< HEAD
-    title Pioneers | Home
-  body.page  
-    header
-    section
-      p.text-block.text-block__paragraph.text-block__paragraph--center 
-      img(src='./login_icon' alt='Banner' style= 'width:100% ; height:600px;')
-=======
     title Pioneers | #{country.name} 
   body.page  
     header
     section
       h2.logo--hover #{country.name}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left ID: #{city.id} 
       p.text-block.text-block__paragraph.text-block__paragraph--align-left Name: #{country.name}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code: #{country.countryCode}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left District: #{city.district}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left Population: #{city.population}
->>>>>>> 4f9c5e7d6401dcf3886b1f64cb338422b84c16b4
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code Alpha-3: #{country.countryCodeAlpha3}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code Alpha-3: #{country.countryCodeAlpha2}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Continent: #{country.continent}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Region: #{country.Region}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Surface Area: #{country.surfaceArea}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Indep Year: #{country.indepYear}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Population: #{country.population}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Life Expectancy: #{country.lifeExpectancy}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left GNP: #{country.GNP}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left GNPOld: #{country.GNPOld}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Local Name: #{country.localName}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Government Form: #{country.Region}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Head of State: #{country.headOfState}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Local Name: #{country.capital}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Local Name: #{country.countryCodeAlpha2}
     footer
