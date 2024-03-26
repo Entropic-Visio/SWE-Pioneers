@@ -7,14 +7,24 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-          name: Build Container
+          name: Build container
           command: docker-compose build
       - run:
-          name: Run Container
+          name: Run container
           command: docker-compose up -d
+  
+  test:
+    docker:
+      - image: circleci/buildpack-deps:bionic-curl
+    steps:
+      - checkout
+      - run:
+          name: Test City Router
+          command: npm test
 
 workflows:
   version: 2
   build:
     jobs:
       - build
+      - test
