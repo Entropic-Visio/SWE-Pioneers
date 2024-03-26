@@ -27,8 +27,8 @@ jobs:
       - run:
           name: Test City Router
           command: |
-          cd src
-          npx jest
+            cd src
+            npx jest
 
 workflows:
   version: 2
