@@ -3,10 +3,10 @@ orbs:
   node: circleci/node@4.7.0
 jobs:
   build:
-    working_directory: ~/SWE
+    working_directory: ~/swe-pioneers
     docker:
-    - image: cimg/node:its
+      - image: cimg/node:lts
     steps:
       - checkout:
-          path: ~/SWE
+        path: ~/swe-pioneers/src
       - run: npm install
