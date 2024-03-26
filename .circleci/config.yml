@@ -13,7 +13,6 @@ jobs:
           attach-at: ./ 
           debug: false 
           dockerfile: docker-compose.yml 
-          extra_build_args: --build -d 
           image: swe-pioneers 
           lint-dockerfile: false 
           path: . 
