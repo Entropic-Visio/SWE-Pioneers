@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: docker:stable
+      - image: node:latest
 
     working_directory: /app
 
