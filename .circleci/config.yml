@@ -1,11 +1,13 @@
 version: 2.1
 
-jobs:
-  build:
-    working_directory: ~/swe-pioneers
-    docker:
-      - image: cimg/node:lts
-    steps:
-      - checkout:
-        path: ~/swe-pioneers/src
-      - run: npm install
+orbs:
+  node: circleci/node@5.2.0
+
+workflows:
+    example-workflow:
+      jobs:
+        - node/run:
+            app-dir: ~/swe-pioneers/src 
+            pkg-manager: npm 
+            resource_class: large 
+            npm-run: npm install
