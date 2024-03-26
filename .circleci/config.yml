@@ -1,13 +1,26 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.2.0
+  docker: circleci/docker@1.7.0
+
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - docker/build:
+          attach-at: ./ 
+          debug: false 
+          dockerfile: docker-compose.yml 
+          extra_build_args: --build -d 
+          image: swe-pioneers 
+          lint-dockerfile: false 
+          path: . 
+          step-name: Build Docker 
+          treat-warnings-as-errors: false 
 
 workflows:
-    example-workflow:
-      jobs:
-        - node/run:
-            app-dir: ~/swe-pioneers/src 
-            pkg-manager: npm 
-            resource_class: large 
-            npm-run: npm install
+  example-workflow:
+    jobs:
+      - example-job
