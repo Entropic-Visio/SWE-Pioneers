@@ -24,10 +24,6 @@ jobs:
           command: |
             cd src
             npm install
-            
-      - run:
-          name: Install Dependencies
-          command: npm install
       - run:
           name: Test City Router
           command: npx jest
