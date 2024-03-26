@@ -15,9 +15,10 @@ jobs:
   
   test:
     docker:
-      - image: circleci/buildpack-deps:bionic-curl
+      - image: cimg/node:21.7.1
     steps:
       - checkout
+      - run: node --version
       - run:
           name: Test City Router
           command: npm test
