@@ -1,47 +1,21 @@
 version: 2.1
-
 jobs:
   build:
     docker:
-      - image: docker:stable
-      - image: node:latest
-
-    working_directory: /app
-
+      - image: circleci/buildpack-deps:bionic-curl
     steps:
       - checkout
-
+      - setup_remote_docker
       - run:
-          name: Install Docker Compose
-          command: |
-            apk add --no-cache py-pip
-            pip install docker-compose
-
+          name: Build Container
+          command: docker-compose build
       - run:
-           name: Install Dependencies
-           command: |
-            cd src
-            npm install
-            cd ../
+          name: Run Container
+          command: docker-compose up -d
 
-      # Build Docker images using Docker Compose
-      - run:
-           name: Build Docker images
-           command: |
-            docker-compose build
-
-      # Run tests or any other required commands
-
-      #- run:
-       #    name: Run Tests
-        #   command: |
-         #   npm test
-
-  # Add more jobs as needed, for example, for deployment
-
-# Workflows define the order of execution
+  
 workflows:
   version: 2
-  build:
-    jobs:
-      - build   
+    build:
+      jobs:
+        - build
