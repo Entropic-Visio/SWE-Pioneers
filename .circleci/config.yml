@@ -21,7 +21,10 @@ jobs:
       - checkout
       - run:
           name: Current Directory
-          command: ls
+          command: |
+            cd src
+            npm install
+            
       - run:
           name: Install Dependencies
           command: npm install
