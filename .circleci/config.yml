@@ -45,9 +45,5 @@ workflows:
   build:
     jobs:
       - build
-<<<<<<< HEAD
-      - router-tests
-=======
       - test
       - test-duplicate-code
->>>>>>> 94e2b90029e765bee197cbfce45c117e2d0258b5
