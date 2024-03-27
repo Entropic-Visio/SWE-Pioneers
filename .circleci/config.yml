@@ -16,7 +16,7 @@ jobs:
   test:
     docker:
       - image: cimg/node:21.7.1
-    working_directory: ~/swe-pioneer/src
+    working_directory: ~/project/src
     steps:
       - checkout
       - run:
@@ -30,9 +30,20 @@ jobs:
             cd src
             npx jest
 
+  test-duplicate-code:
+      docker:
+        - image: cimg/node:21.7.1
+      working_directory: ~/project/src
+      steps:
+        - checkout
+        - run:
+           name: Check for Duplicate Code
+           command: pwd
+
 workflows:
   version: 2
   build:
     jobs:
       - build
       - test
+      - test-duplicate-code
