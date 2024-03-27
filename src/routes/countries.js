@@ -38,7 +38,7 @@ router.get("/countryCode/:countryCode", async (req, res) => {
       return res.status(404).render("404");
     }
 
-    return res.render('country', {country:country}); // render city using city.pug and assign city variable with the city object
+    return res.render('country-report', {country:country}); // render city using city.pug and assign city variable with the city object
 
   } catch (error) {
     // If an error occurs during the database query or rendering, log the error to the console.

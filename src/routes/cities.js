@@ -11,7 +11,7 @@ Returns All Cities
 router.get("/", async (req, res) => {
   try {
     const results = await cityServices.getAllCities();
-    return res.send(results);
+    return res.render('city', {cities:results});
   } catch (error) {
     console.error(error);
     return res.status(500).render("500");
@@ -55,7 +55,7 @@ router.get("/id/:id", async (req, res) => {
       return res.status(404).render("404");
     }
 
-    return res.render('city', {city:city}); // render city using city.pug and assign city variable with the city object
+    return res.render('city-report', {city:city}); // render city using city.pug and assign city variable with the city object
 
   } catch (error) {
     console.log(error);

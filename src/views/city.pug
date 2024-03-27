@@ -6,14 +6,27 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
-    title Pioneers | #{city.name} 
+      include ../styles/cities.css
+    title Pioneers | Home
   body.page  
     header
     section
-      h2.logo--hover #{city.name}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left ID: #{city.id} 
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left Name: #{city.name}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code: #{city.countryCode}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left District: #{city.district}
-      p.text-block.text-block__paragraph.text-block__paragraph--align-left Population: #{city.population}
+      h2 Cities 
+      table.table  
+        thead 
+            th City ID 
+            th Name 
+            th Country Code
+            th District 
+            th Population 
+        tbody
+          each city, id in cities  
+            tr   
+              td.fit
+                a(href="/cities/id/${id}") #{id+1}
+              td.fit #{city.Name}
+              td.fit #{city.CountryCode}
+              td.fit #{city.District}
+              - const population = new Intl.NumberFormat().format(city.Population);
+              td.fit.number #{population}
     footer

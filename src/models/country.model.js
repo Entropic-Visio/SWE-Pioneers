@@ -38,7 +38,7 @@ class Country {
                     this.capital = result.Capital;
                     this.countryCodeAlpha2 = result.Code2.toUpperCase();
                 } else {
-                    throw new Error("City not found");
+                    throw new Error("Country Not Found");
                 }
         }
     }
