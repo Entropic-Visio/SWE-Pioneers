@@ -12,22 +12,47 @@ async function getAllCities() {
     }
 }
 
-/*
-Get Specific City using SQL query using the cityID
-
-*/
 async function getCityById(cityID) { 
     console.log("City ID:", cityID);
-    const sql = "SELECT * FROM `city` WHERE ID = ?"; // Query
+    const sql = "SELECT * FROM `city` WHERE ID = ?";
 
     try {
-        const [rows, fields] = await db.query(sql, [cityID]); // Query the Database
+        const [rows, fields] = await db.query(sql, [cityID]);
         console.log(rows[0]);
-        return rows[0]; // Return the Value
+        return rows[0];
     } catch (error) {
         console.error("Error Fetching City by ID: ", error);
         throw new Error("Failed to Fetch City by ID");
     }
 }
 
-module.exports = { getAllCities, getCityById };
+async function getCityOrderByPopulationDesc() {
+    const sql = "SELECT * FROM `city` ORDER BY `Population` DESC";
+    try {
+      const [rows, fields] = await db.query(sql);
+      console.log(`Cities ordered by population: ${rows.length} rows`);
+      return rows;
+    } catch (error) {
+      console.error("Error ordering cities by population: ", error);
+      throw new Error("Failed to order cities by population");
+    }
+};
+
+async function getCityOrderByPopulationAsc() {
+    const sql = "SELECT * FROM `city` ORDER BY `Population` ASC"; 
+    try {
+      const [rows, fields] = await db.query(sql);
+      console.log(`Cities ordered by population: ${rows.length} rows`);
+      return rows;
+    } catch (error) {
+      console.error("Error ordering cities by population: ", error);
+      throw new Error("Failed to order cities by population");
+    }
+};
+
+module.exports = { 
+    getAllCities, 
+    getCityById, 
+    getCityOrderByPopulationDesc,
+    getCityOrderByPopulationAsc
+};

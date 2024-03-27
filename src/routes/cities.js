@@ -19,6 +19,27 @@ router.get("/", async (req, res) => {
 });
 
 
+router.get("/asc", async (req, res) => {
+  try {
+    const results = await cityServices.getCityOrderByPopulationAsc();
+    return res.send(results);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).render("500");
+  }
+});
+
+router.get("/desc", async (req, res) => {
+  try {
+    const results = await cityServices.getCityOrderByPopulationDesc();
+    return res.send(results);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).render("500");
+  }
+});
+
+
 /*
 SQL Query Database for City with Parameter ID,
 Returns City with the same ID, and uses PUG to render in formatted data.
@@ -37,7 +58,7 @@ router.get("/id/:id", async (req, res) => {
     return res.render('city', {city:city}); // render city using city.pug and assign city variable with the city object
 
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).render("500");
   }
 });

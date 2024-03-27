@@ -18,7 +18,7 @@ const mockRes = {
 cityServices.getAllCities.mockRejectedValue(new Error('Database error'));
 
 describe('City Router', () => {
-  it('should respond with all cities', async () => {
+  it('Responds with all the cities', async () => {
     // Mock the behavior of cityServices.getAllCities() to return fake data
     cityServices.getAllCities.mockResolvedValue([{ name: 'City 1' }, { name: 'City 2' }]);
     

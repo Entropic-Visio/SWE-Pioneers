@@ -13,7 +13,7 @@ async function getAllCountries() {
 }
 
 async function getCountryByCode(countryCodeAlpha3) { 
-    console.log("City ID:", cityID);
+    console.log("Country Code Alpha-3:", countryCodeAlpha3);
     const sql = "SELECT * FROM `country` WHERE Code = ?"; // Query
 
     try {
@@ -25,6 +25,5 @@ async function getCountryByCode(countryCodeAlpha3) {
         throw new Error("Failed to Fetch City by ID");
     }
 }
-
 
 module.exports = { getAllCountries, getCountryByCode };
