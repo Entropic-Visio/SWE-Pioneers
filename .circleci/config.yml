@@ -16,7 +16,7 @@ jobs:
   router-tests:
     docker:
       - image: cimg/node:21.7.1
-    working_directory: ~/swe-pioneer/src
+    working_directory: ~/project/src
     steps:
       - checkout
       - run:
@@ -30,9 +30,24 @@ jobs:
             cd src
             npx jest
 
+  test-duplicate-code:
+      docker:
+        - image: cimg/node:21.7.1
+      working_directory: ~/project/src
+      steps:
+        - checkout
+        - run:
+           name: Check for Duplicate Code
+           command: npx jscpd -p "src/**/*.js,ts,html"
+
 workflows:
   version: 2
   build:
     jobs:
       - build
+<<<<<<< HEAD
       - router-tests
+=======
+      - test
+      - test-duplicate-code
+>>>>>>> 94e2b90029e765bee197cbfce45c117e2d0258b5
