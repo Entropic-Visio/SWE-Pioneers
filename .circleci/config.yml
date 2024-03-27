@@ -38,7 +38,7 @@ jobs:
         - checkout
         - run:
            name: Check for Duplicate Code
-           command: pwd
+           command: npx jscpd -p "src/**/*.js,ts,html"
 
 workflows:
   version: 2
