@@ -1,0 +1,52 @@
+include navbar 
+doctype html 
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    style
+      include ../styles/main.css
+      include ../styles/cities.css
+    title Pioneers | Home
+  body.page  
+    header
+    section
+      h2 Countries 
+      table.table  
+        thead 
+            th Country Code 
+            th Name 
+            th Continent 
+            th Region
+            th Surface Area 
+            th Independence Year
+            th Population 
+            th Life Expectancy 
+            th GNP 
+            th GNPOld 
+            th Local Name 
+            th Goverment Form 
+            th Head of State 
+            th Capital 
+            th Country Code
+        tbody
+          each country, id in countries  
+            tr   
+              td.fit
+                a(href=`/countries/countryCode/${country.Code}`) #{country.Code}
+              td.fit #{country.Name}
+              td.fit #{country.Continent}
+              td.fit #{country.Region}
+              td.fit #{country.SurfaceArea}
+              td.fit #{country.IndependenceYear}
+              - const population = new Intl.NumberFormat().format(country.Population);
+              td.fit.number #{population}
+              td.fit #{country.LifeExpectancy}
+              td.fit #{country.GNP}
+              td.fit #{country.GNPOld}
+              td.fit #{country.LocalName}
+              td.fit #{country.GovernmentForm}
+              td.fit #{country.HeadOfState}
+              td.fit #{country.Capital}
+              td.fit #{country.Code2}
+    footer

@@ -23,7 +23,7 @@ html
           each city, id in cities  
             tr   
               td.fit
-                a(href="/cities/id/${id}") #{id+1}
+                a(href=`/cities/id/${city.ID}`) #{city.ID}
               td.fit #{city.Name}
               td.fit #{city.CountryCode}
               td.fit #{city.District}

@@ -3,13 +3,14 @@ const express = require("express");
 const router = express.Router() 
 const mysql = require('mysql2'); 
 const db = require('../services/db.js');
+const countryServices = require('../services/country.services.js');
 const { Country } = require('../models/country.model.js');
 
 router.get("/", async (req, res) => {
   try {
-    const [rows, fields] = await db.query("SELECT * FROM `country`");
-    console.log(`/countries: ${rows.length} rows`);
-    return res.send(rows);
+    const results = await countryServices.getAllCountries();
+    console.log(`/countries: ${results.length} rows`);
+    return res.render('country', {countries:results});
   } catch (error) {
     console.error(error);
     return res.status(500).render("500");

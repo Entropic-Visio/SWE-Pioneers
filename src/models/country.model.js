@@ -36,7 +36,7 @@ class Country {
                     this.governmentForm = result.GovernmentForm;
                     this.headOfState = result.HeadOfState;
                     this.capital = result.Capital;
-                    this.countryCodeAlpha2 = result.Code2.toUpperCase();
+                    this.countryCodeAlpha2 = result.Code2;
                 } else {
                     throw new Error("Country Not Found");
                 }
