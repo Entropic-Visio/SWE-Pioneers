@@ -21,6 +21,8 @@ const contactRoute = require('./routes/contact');
 const pingRoute = require('./routes/ping');
 const citiesRoute = require('./routes/cities');
 const countriesRoute = require('./routes/countries');
+const reportsRoute = require('./routes/reports');
+const databaseRoute = require('./routes/database');
 
 // we assign the routes to a javascript file which we required above. 
 app.use("/", homeRoute);
@@ -28,7 +30,9 @@ app.use("/about", aboutRoute);
 app.use("/contact", contactRoute);
 app.use("/ping", pingRoute);
 app.use("/cities", citiesRoute);
-app.use("/countries", countriesRoute)
+app.use("/countries", countriesRoute);
+app.use("/reports", reportsRoute);
+app.use("/database", databaseRoute);
 
 // start server
 app.listen(port, () => {
