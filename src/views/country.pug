@@ -15,6 +15,7 @@ html
       table.table  
         thead 
             th Country Code 
+            th Country Code 2
             th Name 
             th Continent 
             th Region
@@ -27,18 +28,23 @@ html
             th Local Name 
             th Goverment Form 
             th Head of State 
-            th Capital 
-            th Country Code
+            th Capital
         tbody
           each country, id in countries  
             tr   
               td.fit
                 a(href=`/countries/countryCode/${country.Code}`) #{country.Code}
+              td.fit
+                a(href=`/countries/countryCode/${country.Code}`) #{country.Code2}
               td.fit #{country.Name}
+                a(href=`/countries/countryCode/${country.Code}`)
               td.fit #{country.Continent}
+                a(href=`/countries/countryCode/${country.Code}`)
               td.fit #{country.Region}
+                a(href=`/countries/countryCode/${country.Code}`)
               td.fit #{country.SurfaceArea}
-              td.fit #{country.IndependenceYear}
+                a(href=`/countries/countryCode/${country.Code}`)
+              td.fit #{country.IndepYear}
               - const population = new Intl.NumberFormat().format(country.Population);
               td.fit.number #{population}
               td.fit #{country.LifeExpectancy}
@@ -48,5 +54,4 @@ html
               td.fit #{country.GovernmentForm}
               td.fit #{country.HeadOfState}
               td.fit #{country.Capital}
-              td.fit #{country.Code2}
     footer
