@@ -32,26 +32,26 @@ html
         tbody
           each country, id in countries  
             tr   
-              td.fit
+              td.table-row
                 a(href=`/countries/countryCode/${country.Code}`) #{country.Code}
-              td.fit
+              td.table-row
                 a(href=`/countries/countryCode/${country.Code}`) #{country.Code2}
-              td.fit #{country.Name}
+              td.table-row #{country.Name}
                 a(href=`/countries/countryCode/${country.Code}`)
-              td.fit #{country.Continent}
+              td.table-row #{country.Continent}
                 a(href=`/countries/countryCode/${country.Code}`)
-              td.fit #{country.Region}
+              td.table-row #{country.Region}
                 a(href=`/countries/countryCode/${country.Code}`)
-              td.fit #{country.SurfaceArea}
+              td.table-row #{country.SurfaceArea}
                 a(href=`/countries/countryCode/${country.Code}`)
-              td.fit #{country.IndepYear}
+              td.table-row #{country.IndepYear}
               - const population = new Intl.NumberFormat().format(country.Population);
-              td.fit.number #{population}
-              td.fit #{country.LifeExpectancy}
-              td.fit #{country.GNP}
-              td.fit #{country.GNPOld}
-              td.fit #{country.LocalName}
-              td.fit #{country.GovernmentForm}
-              td.fit #{country.HeadOfState}
-              td.fit #{country.Capital}
+              td.table-row.number #{population}
+              td.table-row #{country.LifeExpectancy}
+              td.table-row #{country.GNP}
+              td.table-row #{country.GNPOld}
+              td.table-row #{country.LocalName}
+              td.table-row #{country.GovernmentForm}
+              td.table-row #{country.HeadOfState}
+              td.table-row #{country.Capital}
     footer
