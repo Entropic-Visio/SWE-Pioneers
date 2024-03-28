@@ -31,7 +31,7 @@ html
             th Capital
         tbody
           each country, id in countries  
-            tr   
+            tr.active-row(data-url=`countries/countryCode/${country.Code}`)   
               td #{country.Code}
               td #{country.Code2}
               td #{country.Name}
@@ -49,3 +49,12 @@ html
               td #{country.HeadOfState}
               td #{country.Capital}
     footer
+
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+  script.
+    $(document).ready(function() {
+      $('.active-row').click(function() {
+        var url = $(this).data('url');
+        window.location.href = url;
+      });
+    });

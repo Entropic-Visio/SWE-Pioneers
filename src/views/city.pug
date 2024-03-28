@@ -21,8 +21,7 @@ html
             th Population 
         tbody
           each city, id in cities  
-              tr.active-row
-                a(href=`cities/id/${city.ID}`)
+              tr.active-row(data-url=`cities/id/${city.ID}`)
                 td #{city.ID}
                 td #{city.Name}
                 td #{city.CountryCode}
@@ -30,3 +29,12 @@ html
                 - const population = new Intl.NumberFormat().format(city.Population);
                 td.number  #{population}
     footer
+
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+  script.
+    $(document).ready(function() {
+      $('.active-row').click(function() {
+        var url = $(this).data('url');
+        window.location.href = url;
+      });
+    });

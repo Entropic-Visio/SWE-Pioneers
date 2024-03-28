@@ -32,3 +32,12 @@
 .table-content tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
+
+.table-content tbody tr[data-url] {
+    cursor: pointer;
+}
+
+.table-content tbody tr[data-url]:hover {
+    background-color: #388659;
+    color: #ffffff;
+}
