@@ -50,7 +50,7 @@ html
               td #{country.GovernmentForm}
               td #{country.HeadOfState}
               td
-                a(href=`cities/id/${country.Capital}`) #{country.CapitalName}
+                a.table-content-link(href=`cities/id/${country.Capital}`) #{country.CapitalName}
     footer
 
   script(src="https://code.jquery.com/jquery-3.6.0.min.js")

@@ -42,3 +42,13 @@
     background-color: #388659;
     color: #ffffff;
 }
+
+.table-content-link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.table-content-link:hover {
+    text-decoration: none;
+    color: #04deb2;
+}
