@@ -6,13 +6,13 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
-      include ../styles/cities.css
+      include ../styles/table.css
     title Pioneers | Home
   body.page  
     header
     section
       h2 Cities 
-      table.table  
+      table.table-content   
         thead 
             th City ID 
             th Name 
@@ -21,11 +21,12 @@ html
             th Population 
         tbody
           each city, id in cities  
-            tr   
-              td #{city.ID}
-              td #{city.Name}
-              td #{city.CountryCode}
-              td #{city.District}
-              - const population = new Intl.NumberFormat().format(city.Population);
-              td.number  #{population}
+              tr.active-row
+                a(href=`cities/id/${city.ID}`)
+                td #{city.ID}
+                td #{city.Name}
+                td #{city.CountryCode}
+                td #{city.District}
+                - const population = new Intl.NumberFormat().format(city.Population);
+                td.number  #{population}
     footer
