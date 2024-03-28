@@ -23,6 +23,7 @@
 
 .table-content tbody tr {
     border-bottom: 1px solid #dddddd;
+    font-weight: 500;
 }
 
 .table-content tbody tr:nth-of-type(even) {

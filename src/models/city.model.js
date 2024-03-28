@@ -22,6 +22,16 @@ class City {
                 }
         }
     }
+
+    async getCityName() {
+        if (typeof this.name !== "string") {
+            const result = await cityServices.getCityById(parseInt(this.id));
+            if (result) {
+                this.name = result.Name;
+                return this.name
+            }
+        }
+    }
 }
 
 module.exports = { City };

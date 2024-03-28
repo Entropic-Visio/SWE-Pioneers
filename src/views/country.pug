@@ -10,25 +10,27 @@ html
     title Pioneers | Home
   body.page  
     header
+      nav.navbar
+        // Your navbar content here
     section
       h2 Countries 
       table.table-content  
         thead 
-            th Country Code 
-            th Country Code 2
-            th Name 
-            th Continent 
-            th Region
-            th Surface Area 
-            th Independence Year
-            th Population 
-            th Life Expectancy 
-            th GNP 
-            th GNPOld 
-            th Local Name 
-            th Goverment Form 
-            th Head of State 
-            th Capital
+          th Country Code 
+          th Country Code 2
+          th Name 
+          th Continent 
+          th Region
+          th Surface Area 
+          th Independence Year
+          th Population 
+          th Life Expectancy 
+          th GNP 
+          th GNPOld 
+          th Local Name 
+          th Goverment Form 
+          th Head of State 
+          th Capital
         tbody
           each country, id in countries  
             tr.active-row(data-url=`countries/countryCode/${country.Code}`)   
@@ -47,7 +49,8 @@ html
               td #{country.LocalName}
               td #{country.GovernmentForm}
               td #{country.HeadOfState}
-              td #{country.Capital}
+              td
+                a(href=`cities/id/${country.Capital}`) #{country.CapitalName}
     footer
 
   script(src="https://code.jquery.com/jquery-3.6.0.min.js")

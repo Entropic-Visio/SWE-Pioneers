@@ -1,16 +1,27 @@
 // Modules
 const express = require("express"); 
-const router = express.Router() 
-const mysql = require('mysql2'); 
-const db = require('../services/db.js');
+const router = express.Router();
 const countryServices = require('../services/country.services.js');
 const { Country } = require('../models/country.model.js');
+const { City } = require('../models/city.model.js');
 
 router.get("/", async (req, res) => {
   try {
     const results = await countryServices.getAllCountries();
     console.log(`/countries: ${results.length} rows`);
-    return res.render('country', {countries:results});
+
+    // this gets all the countries with their capital city name
+    const countryWithCapitalNames = await Promise.all(results.map(async country => {
+      const cityID = parseInt(country.Capital); // parse the country.Capital
+      const city = new City(cityID); // create a new city object
+      country.CapitalName = await city.getCityName().catch(error => { // get the cityName and handle any errors
+        console.error("Error fetching city name:", error); // print error fetching a city name
+        return null; // return null if an error occurs
+      });
+      return country; // return country
+    }));
+
+    return res.render('country', { countries: countryWithCapitalNames });
   } catch (error) {
     console.error(error);
     return res.status(500).render("500");
