@@ -22,11 +22,11 @@ html
         tbody
           each city, id in cities  
             tr   
-              td.fit
+              td.table-row
                 a(href=`/cities/id/${city.ID}`) #{city.ID}
-              td.fit #{city.Name}
-              td.fit #{city.CountryCode}
-              td.fit #{city.District}
+              td.table-row #{city.Name}
+              td.table-row #{city.CountryCode}
+              td.table-row #{city.District}
               - const population = new Intl.NumberFormat().format(city.Population);
-              td.fit.number #{population}
+              td.table-row.number #{population}
     footer
