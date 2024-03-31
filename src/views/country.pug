@@ -1,0 +1,63 @@
+include navbar 
+doctype html 
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    style
+      include ../styles/main.css
+      include ../styles/table.css
+    title Pioneers | Home
+  body.page  
+    header
+      nav.navbar
+        // Your navbar content here
+    section
+      h2 Countries 
+      table.table-content  
+        thead 
+          th Country Code 
+          th Country Code 2
+          th Name 
+          th Continent 
+          th Region
+          th Surface Area 
+          th Independence Year
+          th Population 
+          th Life Expectancy 
+          th GNP 
+          th GNPOld 
+          th Local Name 
+          th Goverment Form 
+          th Head of State 
+          th Capital
+        tbody
+          each country, id in countries  
+            tr.active-row(data-url=`countries/countryCode/${country.Code}`)   
+              td #{country.Code}
+              td #{country.Code2}
+              td #{country.Name}
+              td #{country.Continent}
+              td #{country.Region}
+              td #{country.SurfaceArea}
+              td #{country.IndepYear}
+              - const population = new Intl.NumberFormat().format(country.Population);
+              td.table-row.number #{population}
+              td #{country.LifeExpectancy}
+              td #{country.GNP}
+              td #{country.GNPOld}
+              td #{country.LocalName}
+              td #{country.GovernmentForm}
+              td #{country.HeadOfState}
+              td
+                a.table-content-link(href=`cities/id/${country.Capital}`) #{country.CapitalName}
+    footer
+
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+  script.
+    $(document).ready(function() {
+      $('.active-row').click(function() {
+        var url = $(this).data('url');
+        window.location.href = url;
+      });
+    });

@@ -1,13 +1,14 @@
-//Import the mysql2 package to work with MySQL databases in a Node.js environment.
-const mysql = require('mysql2');
-// Import the database configuration from the 'configs' directory. This file contains the database connection settings
+const mysql = require('mysql2/promise');
 const dbConfig = require('../configs/dbConfigs.js');
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: dbConfig.HOST,
     user: dbConfig.USER,
     password: dbConfig.PASSSWORD,
     database: dbConfig.DATABASE,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
 // Export the connection object so it can be used elsewhere in the application. 
