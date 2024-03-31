@@ -11,4 +11,6 @@ const connection = mysql.createPool({
     queueLimit: 0
 });
 
+// Export the connection object so it can be used elsewhere in the application. 
+// This allows other parts of the application to perform database operations using this single connection.
 module.exports = connection;
