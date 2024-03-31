@@ -74,6 +74,8 @@ async function getCityOrderByPopulationDesc() {
     } catch (error) {
         // Handle errors that occured during databasee query execution
         console.error("Error ordering cities by population: ", error);
+
+        // Throw a new error if city retrievel fail 
         throw new Error("Failed to order cities by population");
     }
 };
