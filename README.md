@@ -1,10 +1,7 @@
-# SWE-Pioneers
-SWE-Pioneers | Software Engineering Coursework
+# SWE-Pioneers | Software Engineering Coursework
 
-Pioneers a website designed to scope the world with numbers.
+Pioneers a website designed to view the world with numbers.
 The aim of the pioneers website is to represent data of the world, such as continents, countries, cities, districts etc.
-
-
 
 The followng are the members for the SWE-Pioneers along with the Identification numbers:
 * Rezwan (RAH22529097)
@@ -19,6 +16,3 @@ Therefore to get started and have a better understanding of our Reposistory and 
 
 Wiki link:
 https://github.com/Entropic-Visio/swe-pioneers/wiki
-
-SWE-Pioneers | Software Engineering Coursework.
-bow! 
