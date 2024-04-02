@@ -42,3 +42,6 @@ app.use("/register", registerRoute);
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}`);
 });
+
+// exporting app for jest route testings
+module.exports = app;
