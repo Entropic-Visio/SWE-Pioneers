@@ -25,12 +25,6 @@
     margin: 0 auto;
 }
 
-.block{
-    background-color: #388659;
-    width: 100%;
-    height: 600px;
-}
-
 .text-block__paragraph {
     font-size: 16px;
 }
