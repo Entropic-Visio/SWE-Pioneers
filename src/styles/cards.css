@@ -1,3 +1,4 @@
+/* Base styles */
 .card-container {
   display: flex;
   justify-content: center;
@@ -6,13 +7,20 @@
 }
 
 .card {
-  width: 525px;
+  width: 100%; /* Take full width by default */
+  max-width: 525px; /* Maximum width for larger screens */
   background-color: #388659;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   margin: 20px;
   padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card img {
