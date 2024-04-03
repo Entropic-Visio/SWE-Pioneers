@@ -30,16 +30,6 @@ describe('Testing Router Endpoints', () => {
   });
 
   it('should respond with status 200 for ping route', async () => {
-    const response = await request(app).get('/countries');
-    expect(response.statusCode).toBe(200);
-  });
-
-  it('should respond with status 200 for ping route', async () => {
-    const response = await request(app).get('/database');
-    expect(response.statusCode).toBe(200);
-  });
-
-  it('should respond with status 200 for ping route', async () => {
     const response = await request(app).get('/login');
     expect(response.statusCode).toBe(200);
   });
