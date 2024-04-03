@@ -6,25 +6,26 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
-      include ../styles/countries.css
     title Pioneers | #{country.name} 
   body.page  
     header
     section
       img(src=`https://flagcdn.com/w160/${country.countryCodeAlpha2.toLowerCase()}.png`)
       h2.logo--hover #{country.name}
-      p.information  Country Code Alpha-2: #{country.countryCodeAlpha2}
-      p.information Country Code Alpha-3: #{country.countryCodeAlpha3}
-      p.information Continent: #{country.continent}
-      p.information Region: #{country.region}
-      p.information Surface Area: #{country.surfaceArea}
-      p.information Indep Year: #{country.indepYear}
-      p.information Population: #{country.population}
-      p.information Life Expectancy: #{country.lifeExpectancy}
-      p.information GNP: #{country.GNP}
-      p.information GNPOld: #{country.GNPOld}
-      p.information Local Name: #{country.localName}
-      p.information Government Form: #{country.governmentForm}
-      p.information Head of State: #{country.headOfState}
-      p.information Capital: #{country.capital}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Name: #{country.name}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code Alpha-2: #{country.countryCodeAlpha2}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code Alpha-3: #{country.countryCodeAlpha3}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Continent: #{country.continent}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Region: #{country.region}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Surface Area: #{country.surfaceArea}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Indep Year: #{country.indepYear}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Population: #{country.population}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Life Expectancy: #{country.lifeExpectancy}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left GNP: #{country.GNP}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left GNPOld: #{country.GNPOld}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Local Name: #{country.localName}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Government Form: #{country.governmentForm}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Head of State: #{country.headOfState}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Capital: #{country.capital}
+      p.text-block.text-block__paragraph.text-block__paragraph--align-left Country Code: #{country.countryCodeAlpha2}
     footer
