@@ -33,6 +33,4 @@ describe('Testing Router Endpoints', () => {
     const response = await request(app).get('/register');
     expect(response.statusCode).toBe(200);
   });
-
-  // Add more tests for other routes similarly
 });
