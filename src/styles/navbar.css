@@ -1,7 +1,7 @@
 .navbar {
     list-style-type: none;
     margin: 0 auto;
-    padding: 0;
+    padding: 10px;
     overflow: hidden;
     background-color: #ffffff;
     font-family: "Poppins", sans-serif;
