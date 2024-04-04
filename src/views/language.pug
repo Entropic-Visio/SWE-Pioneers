@@ -29,7 +29,8 @@ html
               td #{language.IsOfficial}
               td #{language.Percentage}
               - const population = new Intl.NumberFormat().format(language.Population);
-              td.table-row.number #{population}
+              - const total_population = population * (language.Percentage / 100);
+              td.table-row.number #{total_population}
     footer
 
   script(src="https://code.jquery.com/jquery-3.6.0.min.js")
