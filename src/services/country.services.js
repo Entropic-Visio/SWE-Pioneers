@@ -1,5 +1,4 @@
-const db = require('./db.js');
-
+const { worldConnection } = require('./db.js');
 /**
  * Retrieves all countries from the database.
  * @returns {Promise<Array<Object>>} An array of country objects.
@@ -9,7 +8,7 @@ async function getAllCountries() {
     const sql = "SELECT * FROM `country`";
     try {
         // Execute the SQL query asynchronously
-        const [rows, fields] = await db.query(sql);
+        const [rows, fields] = await worldConnection.query(sql);
 
         // log the number of countries returned
         console.log(`/countries: ${rows.length} rows`);
@@ -35,7 +34,7 @@ async function getCountryByCode(countryCodeAlpha3) {
 
     try {
         // Execute the SQL query asynchronously
-        const [rows, fields] = await db.query(sql, [countryCodeAlpha3]);
+        const [rows, fields] = await worldConnection.query(sql, [countryCodeAlpha3]);
         
         // Log the first row
         console.log(rows[0]);

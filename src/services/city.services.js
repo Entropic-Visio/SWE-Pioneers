@@ -1,4 +1,4 @@
-const db = require('./db.js');
+const { worldConnection } = require('./db.js');
 
 /**
  * Retrieves all cities from the database.
@@ -9,7 +9,7 @@ async function getAllCities() {
     const sql = "SELECT * FROM `city`";
     try {
         // Execute the SQL query asynchronously
-        const [rows, fields] = await db.query(sql);
+        const [rows, fields] = await worldConnection.query(sql);
 
         // Get the number of cities returned
         console.log(`/cities: ${rows.length} rows`);
@@ -39,7 +39,7 @@ async function getCityById(cityID) {
 
     try {
         // Execute the SQL query asynchronously, passing the cityID as a parameter
-        const [rows, fields] = await db.query(sql, [cityID]);
+        const [rows, fields] = await worldConnection.query(sql, [cityID]);
 
         // Log the retrieved city object
         console.log(rows[0]);
@@ -65,7 +65,7 @@ async function getCityOrderByPopulationDesc() {
 
     try {
         // Execute the SQL query asynchronously
-        const [rows, fields] = await db.query(sql);
+        const [rows, fields] = await worldConnection.query(sql);
         console.log(`Cities ordered by population: ${rows.length} rows`);
 
         // Return the retrieved rows
@@ -89,7 +89,7 @@ async function getCityOrderByPopulationAsc() {
     try {
 
         // Execute the SQL query asynchronously
-        const [rows, fields] = await db.query(sql);
+        const [rows, fields] = await worldConnection.query(sql);
         console.log(`Cities ordered by population: ${rows.length} rows`);
 
         // Return the retrieved rows
