@@ -8,10 +8,26 @@ html
       include ../styles/main.css
       include ../styles/table.css
     title Pioneers | Home
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script.
+      $(document).ready(function() {
+        $('.active-row').click(function() {
+          var url = $(this).data('url');
+          window.location.href = url;
+        });
+
+        $('#searchInput').on('keyup', function() {
+          var searchText = $(this).val().toLowerCase();
+          $('.table-content tbody tr').filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+          });
+        });
+      });
   body.page  
     header
     section
       h2 Cities 
+      input.search#searchInput(style="color: white")
       table.table-content   
         thead 
             th City ID 
@@ -38,3 +54,5 @@ html
         window.location.href = url;
       });
     });
+  
+  
