@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install && npm install -g supervisor
+RUN npm install && npm install -g supervisor express
 
 ENV PORT=5000
 

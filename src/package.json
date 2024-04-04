@@ -2,7 +2,7 @@
   "name": "swe-pioneers",
   "version": "1.0.0",
   "description": "SWE-Pioneers | Software Engineering Coursework",
-  "main": "src/index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
