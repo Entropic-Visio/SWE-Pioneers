@@ -42,6 +42,17 @@ class Country {
                 }
         }
     }
+
+    async getCountryPopulation() {
+        if (!Number.isInteger(this.population)) {
+            const result = await countryService.getCountryByCode(this.countryCodeAlpha3);
+            if (result) {
+                this.population = result.Population;
+            } else {
+                throw new Error("Country Not Found");
+            }
+        }
+    }
 }
 
 module.exports = { Country };
