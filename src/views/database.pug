@@ -6,13 +6,50 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
+      include ../styles/cards.css
     title Pioneers | Database
   body.page  
-    header
     section
-      h2.logo--hover Databases
-      p.text-block.text-block__paragraph.text-block__paragraph--center These are the available databases: 
-      .hyperlink-box
-        a.nav-link(href="/countries") Countries
-        a.nav-link(href="/cities") Cities
-        a.nav-link(href="/languages") Langauges 
+      h2.page--title Databases
+      .card-container
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 World
+            p All our information of the world can be found here. 
+            a.card-content--button(href="/world") Learn More
+        
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 Continent
+            p Continent database here.
+            a.card-content--button(href="/continent") Learn More
+        
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 Region
+            p Region database here.
+            a.card-content--button(href="/region") Learn More
+
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 Country
+            p Country database here.
+            a.card-content--button(href="/district") Learn More
+
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 District
+            p District database here.
+            a.card-content--button(href="/district") Learn More
+
+        .card
+          img(src="logo-file.png", alt="logo")
+          .card-content
+            h3 Cities
+            p Cities database here.
+            a.card-content--button(href="/cities") Learn More

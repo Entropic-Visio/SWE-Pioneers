@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     const results = await cityServices.getAllCities();
     return res.render('city', {cities:results});
   } catch (error) {
-    console.error(error);
+    console.error("Error fetching cities:", error.message);
     return res.status(500).render("500");
   }
 });

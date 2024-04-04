@@ -13,7 +13,7 @@ jobs:
           name: Run container
           command: docker-compose up -d
   
-  router-tests:
+  tests:
     docker:
       - image: cimg/node:21.7.1
     working_directory: ~/project/src
@@ -25,7 +25,7 @@ jobs:
             cd src
             npm install
       - run:
-          name: Test City Router
+          name: Test City Services
           command: |
             cd src
             npx jest
@@ -45,4 +45,5 @@ workflows:
   build:
     jobs:
       - build
+      - tests
       - test-duplicate-code

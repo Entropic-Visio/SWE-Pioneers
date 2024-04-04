@@ -24,6 +24,9 @@ const countriesRoute = require('./routes/countries');
 const reportsRoute = require('./routes/reports');
 const databaseRoute = require('./routes/database');
 const languagesRoute = require('./routes/language')
+const loginRoute = require('./routes/login');
+const registerRoute = require('./routes/register');
+
 
 // we assign the routes to a javascript file which we required above. 
 app.use("/", homeRoute);
@@ -35,8 +38,13 @@ app.use("/countries", countriesRoute);
 app.use("/reports", reportsRoute);
 app.use("/database", databaseRoute);
 app.use("/languages",languagesRoute)
+app.use("/login", loginRoute);
+app.use("/register", registerRoute);
 
 // start server
 app.listen(port, () => {
   console.log(`Server running on port http://localhost:${port}`);
 });
+
+// exporting app for jest route testings
+module.exports = app;
