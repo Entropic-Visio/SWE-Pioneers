@@ -48,6 +48,7 @@ class Country {
             const result = await countryService.getCountryByCode(this.countryCodeAlpha3);
             if (result) {
                 this.population = result.Population;
+                return this.population;
             } else {
                 throw new Error("Country Not Found");
             }

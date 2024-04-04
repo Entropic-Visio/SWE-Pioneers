@@ -23,13 +23,12 @@ html
           th Population 
         tbody
           each language in countryLanguages  
-            tr.active-row(data-url=`countries/countryCode/${language.CountryCode}`)   
-              td #{language.CountryCode}
-              td #{language.Language}
-              td #{language.IsOfficial}
-              td #{language.Percentage}
-              - const population = new Intl.NumberFormat().format(language.Population);
-              - const total_population = population * (language.Percentage / 100);
+            tr.active-row(data-url=`countries/countryCode/${language.countryCodeAlpha3}`)   
+              td #{language.countryCodeAlpha3}
+              td #{language.language}
+              td #{language.isOfficial}
+              td #{language.percentage}
+              - const total_population = language.population * (language.percentage / 100);
               td.table-row.number #{total_population}
     footer
 

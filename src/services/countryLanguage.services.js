@@ -4,26 +4,25 @@ async function getAllCountryLanguages() {
     const sql = "SELECT * FROM `countrylanguage`";
     try {
         const [rows, fields] = await db.query(sql);
-        console.log(`/langauges: ${rows.length} rows`);
+        console.log(`/languages: ${rows.length} rows`);
         return rows;
     } catch (error) {
         console.error(error);
-        return res.status(500).render("500");
+        throw new Error("Failed to fetch all country languages");
     }
 }
 
-async function getLanguageByCode(countryCodeAlpha3) { 
+async function getLanguageByCodeAndLanguage(countryCodeAlpha3, language) { 
     console.log("Country Code Alpha-3:", countryCodeAlpha3);
-    const sql = "SELECT * FROM `country` WHERE Code = ?"; // Query
-
+    const sql = "SELECT * FROM `countrylanguage` WHERE CountryCode = ? AND Language = ?";
     try {
-        const [rows, fields] = await db.query(sql, [countryCodeAlpha3]); // Query the Database
+        const [rows, fields] = await db.query(sql, [countryCodeAlpha3, language]);
         console.log(rows[0]);
-        return rows[0]; // Return the Value
+        return rows[0];
     } catch (error) {
-        console.error("Error Fetching City by ID: ", error);
-        throw new Error("Failed to Fetch City by ID");
+        console.error("Error fetching language by code and language: ", error);
+        throw new Error("Failed to fetch language by code and language");
     }
 }
 
-module.exports = { getAllCountryLanguages, getLanguageByCode };
+module.exports = { getAllCountryLanguages, getLanguageByCodeAndLanguage };

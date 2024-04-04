@@ -38,7 +38,6 @@ router.get("/desc", async (req, res) => {
   }
 });
 
-
 router.get("/countryCode/:countryCode", async (req, res) => {
   try {
     const countryCode = req.params.countryCode; // city ID
