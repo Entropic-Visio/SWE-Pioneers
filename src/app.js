@@ -40,6 +40,10 @@ app.use("/database", databaseRoute);
 app.use("/languages",languagesRoute)
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
+app.use((req, res, next) => {
+  res.status(404).render('404');
+});
+
 
 // start server
 app.listen(port, () => {

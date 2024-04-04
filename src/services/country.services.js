@@ -35,9 +35,6 @@ async function getCountryByCode(countryCodeAlpha3) {
     try {
         // Execute the SQL query asynchronously
         const [rows, fields] = await worldConnection.query(sql, [countryCodeAlpha3]);
-        
-        // Log the first row
-        console.log(rows[0]);
 
         // Return the first row
         return rows[0];

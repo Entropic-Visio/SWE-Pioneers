@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
                 const languageObject = new Language(language.CountryCode, language.Language);
                 await languageObject.getLanguageInformation();
                 languageObject.population = await country.getCountryPopulation();
-                console.log(languageObject);
                 return languageObject;
             } catch (error) {
                 console.error("Error Processing Language:", error);
