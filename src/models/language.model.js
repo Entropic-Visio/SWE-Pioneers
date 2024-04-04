@@ -10,7 +10,8 @@ class Language {
 
     async getLanguageInformation() {
         if (typeof this.name !== "string") {
-            const result = await countryLanguageServices
+            const result = await countryLanguageServices.getLanguageByCode(this.countryCodeAlpha3);
+            const sql = "SELECT * FROM `countryLanguage` WHERE Code = ?";
         }
     }
 }
