@@ -1,6 +1,6 @@
 // Set up scene, camera, and renderer
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x52AA8A);
+scene.background = new THREE.Color(0x388659);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 5;
 const renderer = new THREE.WebGLRenderer();
@@ -76,7 +76,7 @@ function addTextToScene() {
             font: font,
             size: 0.6,
             height: 0,
-            curveSegments: 12,
+            curveSegments: 25,
             bevelEnabled: false,
         });
 

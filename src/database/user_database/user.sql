@@ -10,3 +10,5 @@ CREATE TABLE users (
     user_type ENUM('admin', 'owner', 'regular') NOT NULL DEFAULT 'regular',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO `users` VALUES (1, 'master', 'master@pioneers.co.uk', 'aabbcc112233', 'owner');

@@ -16,6 +16,8 @@
   margin: 20px;
   padding: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Initially set opacity to 0 */
+  animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
 }
 
 .card:hover {
@@ -57,4 +59,14 @@
 .card-content--button:hover {
   background-color: #ffffff;
   color: #2b2b2b;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
