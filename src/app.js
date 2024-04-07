@@ -12,7 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Server assets from 'static' folder
-app.use(express.static("asset"));
+app.use(express.static("assets"));
 
 // routes javascript files.
 const homeRoute = require('./routes/home');

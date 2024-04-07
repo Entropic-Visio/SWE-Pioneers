@@ -12,6 +12,10 @@
     justify-content: flex-start; /* Align items to the start of the flex container */
     align-items: center; /* Center items vertically within the flex container */
     flex-direction: column; /* Added to arrange items vertically */
+    background-image: url('images/front-page-banner.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .hero__title {
