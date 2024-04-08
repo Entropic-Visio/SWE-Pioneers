@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require("body-parser");
 
 // init app
 const app = express();
@@ -12,7 +13,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 // Server assets from 'static' folder
-app.use(express.static("asset"));
+app.use(express.static("assets"));
+
+// needed to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes javascript files.
 const homeRoute = require('./routes/home');

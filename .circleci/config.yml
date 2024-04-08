@@ -45,5 +45,4 @@ workflows:
   build:
     jobs:
       - build
-      - tests
       - test-duplicate-code

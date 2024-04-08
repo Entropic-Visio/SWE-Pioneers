@@ -54,3 +54,12 @@
 .text-block__paragraph--align-left {
     text-align: left;
 }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

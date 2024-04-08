@@ -7,11 +7,13 @@ html
     style
       include ../styles/main.css
       include ../styles/hero.css
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
     title Pioneers | Home
-  body
-    section.hero__block 
-      p.hero.hero__title Painting the World with Numbers.
-      p.hero.hero__description Representing the world with numbers and data to better interupt our ever changingness.
+  body.page--color 
+    script(src="scripts/globe-script.js")
+    .hero__block 
       a(href="/database")
-        button.hero.hero_button Get Started 
+        button.hero.hero__button Get Started
+    
     footer

@@ -31,9 +31,11 @@ services:
       - ./src:/app
     depends_on:
       - database
+      - user-database
     restart: on-failure
     command: supervisor -e '.' app.js
     environment:
       - DATABASE_HOST=database 
+      - DATABASE_HOST=user-database
     ports:
       - 5000:5000

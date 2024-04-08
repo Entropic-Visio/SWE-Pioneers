@@ -6,10 +6,34 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     style
       include ../styles/main.css
-    title Pioneers | Register 
-  body.page  
-    header
-    section
-      h2.logo--hover Register 
-      p.text-block.text-block__paragraph.text-block__paragraph--center Temporary Register Page
-    footer
+      include ../styles/login.css
+    script(src="https://kit.fontawesome.com/b61a3544ea.js" crossorigin="anonymous")
+    title Pioneers | Sign Up  
+  body.page
+    section.form-box 
+      h1 Register 
+      form(action="/register" method="POST")
+        .input-group 
+          .input-field 
+            i(class="fa-solid fa-user")
+            input(type="text" name="name" placeholder="Name")
+
+          .input-field 
+            i(class="fa-solid fa-envelope")
+            input(type="email" name="email" placeholder="Email")
+
+          .input-field 
+            i(class="fa-solid fa-lock")
+            input(type="password" name="password" placeholder="Password")
+          
+          .input-field 
+            i(class="fa-solid fa-lock")
+            input(type="password" name="confirmPassword" placeholder="Confirm Password")
+
+          p.login--redirect--text Already Have an Account? 
+            a.login--redirect--link(href="/login") Login 
+        
+        .button-field 
+          button(type="register") Register
+    
+  footer
