@@ -2,7 +2,8 @@
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x388659);
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 5;
+camera.position.z = 4;
+camera.position.x = 2;
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth*0.98, window.innerHeight*0.98);
 document.body.appendChild(renderer.domElement);
@@ -59,55 +60,6 @@ const particles = new THREE.Points(particleGeometry, material);
 
 // Add the particle system to the scene
 scene.add(particles);
-
-let textMesh;
-let textToDisplay = "Painting the World\nwith Numbers";
-
-function addTextToScene() {
-    // Remove previous text mesh from the scene if exists
-    if (textMesh) {
-        scene.remove(textMesh);
-    }
-
-    // Load font
-    const fontLoader = new THREE.FontLoader();
-    fontLoader.load('https://cdn.jsdelivr.net/npm/three/examples/fonts/helvetiker_regular.typeface.json', function (font) {
-        const textGeometry = new THREE.TextGeometry(textToDisplay, {
-            font: font,
-            size: 0.6,
-            height: 0,
-            curveSegments: 25,
-            bevelEnabled: false,
-        });
-
-        // Center the text geometry
-        textGeometry.computeBoundingBox();
-        const textWidth = textGeometry.boundingBox.max.x - textGeometry.boundingBox.min.x;
-        textGeometry.translate(-textWidth / 2, 0, 0);
-
-        const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0 });
-        textMesh = new THREE.Mesh(textGeometry, textMaterial);
-        textMesh.position.set(-2, 2, 0); // Set the position of the text
-        scene.add(textMesh);
-
-        fadeInText();
-    });
-}
-
-// Function to animate fade-in effect for the text
-function fadeInText() {
-    let opacity = 0;
-    const fadeInInterval = setInterval(function () {
-        opacity += 0.01; // Adjust fading speed here
-        textMesh.material.opacity = opacity;
-
-        if (opacity >= 1) {
-            clearInterval(fadeInInterval); // Stop fading when opacity reaches 1
-        }
-    }, 20); // Adjust fading interval here (milliseconds)
-}
-
-addTextToScene();
 
 // Function to animate the globe
 function animate() {

@@ -23,6 +23,9 @@
     font-size: 80px;
     padding-top: 30px;
     color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    width: 900px;
+    text-align: right;
 }
 
 .hero__description {
@@ -50,4 +53,23 @@
 .hero__button:hover {
     background-color: #52AA5E;
     border: 5px #ffffff;
+}
+
+/* Text Translation */
+.text-in-front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-10%, -130%);
+    z-index: 10;
+    text-align: right;
+}
+/* Hero Button Translation */
+.button-in-front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(200%, -110%);
+    z-index: 10;
+    text-align: right;
 }
