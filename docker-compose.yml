@@ -13,17 +13,17 @@ services:
     ports:
       - 3306:3306
 
-  user-database:
+  user_database:
     image: mysql
     volumes:
-      - ./src/database/user_database/:/docker-entrypoint-initdb.d/
+      - ./src/database/user_database/:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=user
+      - MYSQL_DATABASE=users
     ports:
-      - 3307:3307
+      - 3308:3306
 
   web:
     build: ./src
@@ -31,11 +31,11 @@ services:
       - ./src:/app
     depends_on:
       - database
-      - user-database
+      - user_database
     restart: on-failure
     command: supervisor -e '.' app.js
     environment:
-      - DATABASE_HOST=database 
-      - DATABASE_HOST=user-database
+      - DATABASE_HOST=database
+      - USER_DATABASE_HOST=user_database
     ports:
       - 5000:5000
