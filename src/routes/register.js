@@ -19,8 +19,7 @@ router.post("/", async (req, res) => {
 
         const user = new User(req.body.name, req.body.email, req.body.password);
         console.log(user);
-        console.log(req.body.confirmPassword);
-
+        
         res.render("login")
     } catch {
         console.log("Error")
