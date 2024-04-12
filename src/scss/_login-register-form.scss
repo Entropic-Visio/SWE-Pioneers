@@ -1,0 +1,105 @@
+@import 'colours';
+@import 'fonts';
+@import 'animations';
+
+.form-box {
+    & {
+        width: 90%;
+        max-width: 450px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: $green;
+        padding: 50px 30px 40px;
+        text-align: center;
+        border-radius: 10px;
+        animation: fadeIn 1s ease-in-out forwards;
+
+        @media screen and (max-width: 768px) {
+            padding: 30px 20px;
+        }
+    }
+
+    &__title {
+        font-size: 30px;
+        margin-bottom: 40px;
+        color: $white;
+        position: relative;
+    }
+
+    &__input-field {
+        background: #eaeaea;
+        margin: 15px 0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__input {
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        padding: 18px 15px;
+        padding: 18px 15px;
+    }
+
+    &__icon {
+        margin-left: 15px;
+        color: #999;
+        display: flex;
+    }
+
+    &__button-field {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        button {
+            font-size: 16px;
+            font-weight: 600;
+            flex-basis: 100%;
+            background-color: $darkgreen;
+            color: #fff;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            transition: background 0.5s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: $white;
+            color: $darkgrey;
+        }
+    }
+
+    &__redirect {
+        &__text {
+            text-align: left;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: #9ee4a7;
+            transition: color 0.5s ease;
+
+            &:hover {
+                color: $darkgreen;
+            }
+        }
+    }
+
+    &__error {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-align: left;
+        color: #e73e3e;
+    }
+}

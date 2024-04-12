@@ -1,0 +1,43 @@
+doctype html
+include navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    script(src="https://kit.fontawesome.com/17c0fad60d.js" crossorigin="anonymous")
+    title Pioneer | Sign Up
+  body
+    .page
+      .form-box 
+        h1.form-box__title Sign Up 
+        form(action="/register" method="POST")
+          .form-box__input-group 
+            .form-box__input-field 
+              i.form-box__icon.fa-solid.fa-user 
+              input.form-box__input(type="text" name="username" placeholder="Username")
+
+            .form-box__input-field 
+              i.form-box__icon.fa-solid.fa-envelope 
+              input.form-box__input(type="email" name="email" placeholder="Email") 
+
+            .form-box__input-field 
+              i.form-box__icon.fa-solid.fa-key 
+              input.form-box__input(type="password" name="password" placeholder="Password") 
+          
+            .form-box__input-field 
+              i.form-box__icon.fa-solid.fa-key 
+              input.form-box__input(type="password" name="confirmPassword" placeholder="Confirm Password") 
+          
+          if passwordDontMatch 
+            p.form-box__error Passwords Dont Match
+
+          if userAlreadyExists 
+            p.form-box__error User Already Exists
+          
+          if emptyField  
+            p.form-box__error Please Fill All Fields
+
+          p.form-box__redirect__text Already Have an Account?  
+            a.form-box__redirect__link(href="/login") Login  
+
+          .form-box__button-field
+            button(type="submit") Register

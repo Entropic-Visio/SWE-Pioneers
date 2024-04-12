@@ -7,12 +7,12 @@ class City {
         this.countryCode = null;
         this.district = null;
         this.population = null;
-    }
+    };
 
     async getCityInformation() {
-        if (typeof this.name !== "string") { // if the city name isnt a string
-                const result = await cityServices.getCityById(parseInt(this.id)); // query the database
-                if (result) { // if the result is not null initalize the rest of the values
+        if (typeof this.name !== "string") {
+                const result = await cityServices.getCityById(parseInt(this.id));
+                if (result) { 
                     this.name = result.Name;
                     this.countryCode = result.CountryCode;
                     this.district = result.District;
@@ -21,7 +21,7 @@ class City {
                     throw new Error("City not found");
                 }
         }
-    }
+    };
 
     async getCityName() {
         if (typeof this.name !== "string") {
@@ -31,7 +31,7 @@ class City {
                 return this.name
             }
         }
-    }
-}
+    };
+};
 
 module.exports = { City };

@@ -1,0 +1,31 @@
+doctype html
+include navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    script(src="https://kit.fontawesome.com/17c0fad60d.js" crossorigin="anonymous")
+    title Pioneer | Sign Up
+  body
+    .page
+      .form-box 
+        h1.form-box__title Login 
+        form(action="/login" method="POST")
+          if userNotFound 
+            p.form-box__error Invalid Credentials
+          .form-box__input-group 
+            .form-box__input-field 
+              i.form-box__icon.__icon.fa-solid.fa-envelope 
+              input.form-box__input(type="email" name="email" placeholder="Email")
+            if empty_email 
+              p.form-box__error Please Enter a Email 
+            .form-box__input-field 
+              i.form-box__icon.__icon.fa-solid.fa-key 
+              input.form-box__input(type="password" name="password" placeholder="Password")
+            if empty_password
+              p.form-box__error Please Enter a Password
+            
+            p.form-box__redirect__text Don't Have An Account? 
+              a.form-box__redirect__link(href="/register") Create Account  
+
+            .form-box__button-field
+              button(type="submit") Login

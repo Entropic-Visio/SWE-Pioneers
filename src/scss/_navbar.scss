@@ -1,0 +1,96 @@
+@import 'colours';
+@import 'fonts';
+@import 'media-queries';
+
+%align-center {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    background-color: $green;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem calc((100vw - 1200px)/2);
+    z-index: 10;
+    position: relative;
+    border-radius: 10px;
+
+    &__logo {
+        font-family: $poppins;
+        font-weight: 700;
+        color: $black;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        margin-left: 24px;
+        @extend %align-center;
+        transition: 0.5s ease;
+
+        &:hover {
+            color: $white;
+            transform: all 0.3s ease;
+        }
+    }
+
+    &__bars {
+        opacity: 0;
+        @include tablet {
+            color: $black;
+            opacity: 1;
+            position: absolute;
+            top: 22px;
+            right: 20px;
+            font-size: 2rem;
+        }
+    }
+
+    &__menu {
+        @extend %align-center;
+        list-style: none;
+        text-align: center;
+        margin-right: 24px;
+        font-family: $poppins;
+
+        @include tablet {
+            display: none;
+        }
+
+        &--links {
+            color: $black;
+            font-size: 1.25rem;
+            font-weight: 600;
+            @extend %align-center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+            transition: 0.5s ease;
+
+            &:hover {
+                color: $white;
+                transform: all 0.3s ease;
+            }
+        }
+
+        #button {
+            padding: 12px 24px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: $darkgreen;
+            margin-left: 16px;
+            color: $white;
+        
+            &:hover {
+                background: $darkgrey;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    &__icons {
+        padding: 2px;
+        margin-left: 5px;
+    }
+}
