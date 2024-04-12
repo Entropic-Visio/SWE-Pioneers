@@ -1,0 +1,28 @@
+doctype html
+include navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneer | Account Setting 
+  body
+    .page
+      .card-container           
+        .card  
+          .card__content 
+            h3.card__content__title Change Username   
+            p.card__content__description Change Username.
+            a.card__content__button(href="/database-settings") Change
+        
+        .card  
+          .card__content 
+            h3.card__content__title Change Email  
+            p.card__content__description Change Email.
+            a.card__content__button(href="/user-settings") Change 
+          
+        .card  
+          .card__content 
+            h3.card__content__title Delete Account  
+            p.card__content__description Delete Account.
+            form(action="/account-setting/delete-account", method="POST")
+              button(type="submit").card__content__red-button Delete Account  
+    

@@ -1,0 +1,39 @@
+script(src="https://kit.fontawesome.com/17c0fad60d.js" crossorigin="anonymous")
+link(rel="stylesheet", href="/css/main.css")
+
+if isLoggedIn 
+  nav.navbar
+    a.navbar__logo(href="/") Pioneer 
+    .navbar__bars 
+      i(class="fas fa-bars")
+    ul.navbar__menu
+      li 
+        a.navbar__menu--links(href="/dashboard") Dashboard 
+      li
+        a.navbar__menu--links(href="/about") About
+      li 
+        a.navbar__menu--links(href="/contact") Contact
+      li.dropdown
+        .dropdown__link 
+          i(class="fa-solid fa-user") 
+          .dropdown__content
+            a.dropdown__content__link(href="/account-setting") Account Settings
+              i.fa-solid.fa-gears.navbar__icons
+              if user.UserType == "Admin"
+                a.dropdown__content__link(href="/admin-panel") Admin Panel 
+            form(action="/logout", method="POST")
+              button.dropdown__content__button Logout 
+                i.fa-solid.fa-right-from-bracket.navbar__icons
+else 
+  nav.navbar
+    a.navbar__logo(href="/") Pioneer 
+    .navbar__bars 
+      i(class="fas fa-bars")
+    ul.navbar__menu 
+      li 
+        a.navbar__menu--links(href="/about") About
+      li 
+        a.navbar__menu--links(href="/contact") Contact
+      li 
+        a.navbar__menu--links#button(href="/register") Get Started
+      

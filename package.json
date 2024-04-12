@@ -1,0 +1,29 @@
+{
+  "name": "pioneers",
+  "version": "1.0.0",
+  "description": "Pioneers Application",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "concurrently \"nodemon --watch . src/app.js\" \"sass --watch src/scss:src/public/css\"",
+    "dev-container": "concurrently \"supervisor .\" \"npm run sass-watch\"",
+    "sass-watch": "sass --watch src/scss:src/public/css --poll",
+    "compile-scss": "sass src/scss:src/public/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0",
+    "sass": "^1.74.1",
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "argon2": "^0.40.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql2": "^3.9.4",
+    "pug": "^3.0.2"
+  }
+}

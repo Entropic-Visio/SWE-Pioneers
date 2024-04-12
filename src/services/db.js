@@ -1,29 +1,24 @@
 const mysql = require('mysql2/promise');
-const dbConfig = require('../configs/dbConfigs.js');
+const dbconfig = require('../configs/db.config.js');
 
-// Connection pool for world_database
 const worldConnection = mysql.createPool({
-    host: dbConfig.WORLD_HOST,
-    user: dbConfig.WORLD_USER,
-    password: dbConfig.WORLD_PASSWORD,
-    database: dbConfig.WORLD_DATABASE,
+    host: dbconfig.WORLD_HOST,
+    user: dbconfig.WORLD_USER,
+    password: dbconfig.WORLD_PASSWORD,
+    database: dbconfig.WORLD_DATABASE,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-// Connection pool for user_database
 const userConnection = mysql.createPool({
-    host: dbConfig.USER_HOST,
-    user: dbConfig.USER_USER,
-    password: dbConfig.USER_PASSWORD,
-    database: dbConfig.USER_DATABASE,
+    host: dbconfig.USER_HOST,
+    user: dbconfig.USER_USER,
+    password: dbconfig.USER_PASSWORD,
+    database: dbconfig.USER_DATABASE,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
 });
 
-module.exports = {
-    worldConnection,
-    userConnection
-};
+module.exports = { worldConnection, userConnection };
