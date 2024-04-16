@@ -3,8 +3,24 @@ include navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | Cities   
+    title Pioneer | Cities  
+    script('scripts/table.js')
   body
     .page
       h1.page.page__heading Cities 
-      p.page.page__text-block Temporary Cities Page
+      thead
+        th ID
+        th Country
+        th City
+        th Population
+        th District
+      tbody
+        each city in cities
+          tr
+            td
+              a(href=`/cities/${i}`) #{city.ID}
+            td #{city.CountryCode}
+            td #{city.Name}
+            - const population = new Intl.NumberFormat().format(city.Population);
+            td #{population}
+            td #{city.District}
