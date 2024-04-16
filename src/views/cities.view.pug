@@ -8,19 +8,22 @@ html
   body
     .page
       h1.page.page__heading Cities 
-      thead
-        th ID
-        th Country
-        th City
-        th Population
-        th District
-      tbody
-        each city in cities
-          tr
-            td
-              a(href=`/cities/${i}`) #{city.ID}
-            td #{city.CountryCode}
-            td #{city.Name}
-            - const population = new Intl.NumberFormat().format(city.Population);
-            td #{population}
-            td #{city.District}
+      table.table-sortable.content-table
+        thead
+          tr 
+            th ID
+            th Country
+            th City
+            th Population
+            th District
+          tr 
+        tbody
+          each city in cities
+            tr
+              td
+                a(href=`/cities/${i}`) #{city.ID}
+              td #{city.CountryCode}
+              td #{city.Name}
+              - const population = new Intl.NumberFormat().format(city.Population);
+              td #{population}
+              td #{city.District}

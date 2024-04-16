@@ -1,37 +1,37 @@
-function AddTableARIA() {
-    try {
-      var allTables = document.querySelectorAll('table');
-      for (var i = 0; i < allTables.length; i++) {
-        allTables[i].setAttribute('role','table');
-      }
-      var allCaptions = document.querySelectorAll('caption');
-      for (var i = 0; i < allCaptions.length; i++) {
-        allCaptions[i].setAttribute('role','caption');
-      }
-      var allRowGroups = document.querySelectorAll('thead, tbody, tfoot');
-      for (var i = 0; i < allRowGroups.length; i++) {
-        allRowGroups[i].setAttribute('role','rowgroup');
-      }
-      var allRows = document.querySelectorAll('tr');
-      for (var i = 0; i < allRows.length; i++) {
-        allRows[i].setAttribute('role','row');
-      }
-      var allCells = document.querySelectorAll('td');
-      for (var i = 0; i < allCells.length; i++) {
-        allCells[i].setAttribute('role','cell');
-      }
-      var allHeaders = document.querySelectorAll('th');
-      for (var i = 0; i < allHeaders.length; i++) {
-        allHeaders[i].setAttribute('role','columnheader');
-      }
-      // this accounts for scoped row headers
-      var allRowHeaders = document.querySelectorAll('th[scope=row]');
-      for (var i = 0; i < allRowHeaders.length; i++) {
-        allRowHeaders[i].setAttribute('role','rowheader');
-      }
-    } catch (e) {
-      console.log("AddTableARIA(): " + e);
-    }
-  }
+function SortTableByColumn(table, column, asc = true) {
+  const dirModifier = asc ? 1 : -1;
+  const tbody = table.tbodies[0]
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  // sort each row
+  const sortedRows = rows.sort((a, b) =>{
+    const aColText = a.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
+    const bColText = b.querySelector(`td:nth-child(${column + 1})`).textContent.trim();
   
-  AddTableARIA();
+    return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier)
+  
+  });
+
+  //remove all existing trs from the table
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+
+  }
+
+  //re-add newly sorted rows
+  tbody.append(...sortedRows);
+
+  table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+  table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
+  table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
+}
+
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+  headerCell.addEventListener("click" , () => {
+    const tableElement = headerCell.parentElement.parentElement.parentElement;
+    const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+    const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+
+    SortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+  })
+});
