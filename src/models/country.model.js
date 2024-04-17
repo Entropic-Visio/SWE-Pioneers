@@ -10,7 +10,7 @@ class Country {
         this.captial = null;
     };
 
-    async getCountryInformation() {
+    async initializeCountry() {
         if (typeof this.name !== "string") {
                 const result = await countryServices.getCountryByCode(this.code);
                 if (result) { 

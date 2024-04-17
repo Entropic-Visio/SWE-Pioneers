@@ -1,5 +1,6 @@
 const { getAllCities } = require('../services/cities.service.js');
 const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
+const City = require('../models/city.model.js');
 
 const GetAllCities = async (req, res) => {
     try {

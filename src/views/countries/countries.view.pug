@@ -36,6 +36,5 @@ html
               td #{country.Region}
               - const population = new Intl.NumberFormat().format(country.Population);
               td #{population}
-              td #{country.Capital} 
-   
-        script('scripts\table.js')
+              td 
+                a.content-table__link--green(href=`cities/id/${country.Capital}`) #{country.CapitalName} 
