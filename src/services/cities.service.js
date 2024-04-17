@@ -42,7 +42,7 @@ async function getCityById(cityID) {
         const [rows, fields] = await worldConnection.query(sql, [cityID]);
 
         // Log the retrieved city object
-        console.log(rows[0]);
+        console.log(rows[0][0]);
 
         // Return the first city object from the result set
         return rows[0];

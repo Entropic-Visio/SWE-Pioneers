@@ -103,6 +103,15 @@
                 color: red;
             }
         }
+
+        &--green {
+            color: #2b2b2b;
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+                color: #96fca7;
+            }
+        }
     }
 
 }

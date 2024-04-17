@@ -1,4 +1,4 @@
-const cityServices = require('../services/cities.service.js');
+const citiesService = require('../services/cities.service.js');
 
 class City {
     constructor(id) {
@@ -11,7 +11,7 @@ class City {
 
     async initializeCity() {
         if (typeof this.name !== "string") {
-                const result = await cityServices.getCityById(parseInt(this.id));
+                const result = await citiesService.getCityById(parseInt(this.id));
                 if (result) { 
                     this.name = result.Name;
                     this.countryCode = result.CountryCode;
@@ -24,7 +24,13 @@ class City {
     };
 
     async getCityName() {
-        return this.name;
+        if (typeof this.name !== "string") {
+            const result = await citiesService.getCityById(this.id);
+            if (result) {
+                this.name = result.Name;
+                return this.name;
+            }
+        }
     }
 };
 
