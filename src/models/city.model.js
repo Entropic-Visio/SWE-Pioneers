@@ -23,7 +23,7 @@ class City {
         }
     };
 
-    async getCityName() {
+    async initializeCity() {
         if (typeof this.name !== "string") {
             const result = await cityServices.getCityById(parseInt(this.id));
             if (result) {
@@ -34,4 +34,4 @@ class City {
     };
 };
 
-module.exports = { City };
+module.exports = City;
