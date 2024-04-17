@@ -422,8 +422,22 @@
   background-color: #52AA5E;
   color: #ffffff;
 }
-.content-table tbody tr__icons--center {
+.content-table__link {
   text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #2b2b2b;
+  background: none;
+  border: none;
+}
+.content-table__link--blue:hover {
+  color: blue;
+}
+.content-table__link--red:hover {
+  color: red;
 }
 
 body {

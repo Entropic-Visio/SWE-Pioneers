@@ -79,13 +79,30 @@
                 color: #ffffff;
             }
         }
+    }
 
-        &__icons {
-            &--center {
-                text-align: center;
+    &__link {
+        text-align: center;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        color: #2b2b2b;
+        background: none;
+        border: none;
+
+        &--blue {
+            &:hover {
+                color: blue;
             }
         }
 
+        &--red {
+            &:hover {
+                color: red;
+            }
+        }
     }
 
 }
