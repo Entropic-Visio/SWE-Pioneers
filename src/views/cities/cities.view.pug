@@ -32,8 +32,7 @@ html
               td #{city.ID}
               td #{city.CountryCode}
               td #{city.Name}
-              - const population = new Intl.NumberFormat().format(city.Population);
-              td #{population}
+              td #{city.Population}
               td #{city.District}
 
-      script('scripts\table.js')
+      script(src = 'scripts/table.js')
