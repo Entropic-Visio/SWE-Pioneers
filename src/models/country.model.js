@@ -43,7 +43,7 @@ class Country {
         }
     }
 
-    async getCountryPopulation() {
+    async initializeCountry() {
         if (!Number.isInteger(this.population)) {
             const result = await countryService.getCountryByCode(this.countryCodeAlpha3);
             if (result) {
@@ -56,4 +56,4 @@ class Country {
     }
 }
 
-module.exports = { Country };
+module.exports = Country;
