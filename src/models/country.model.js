@@ -26,14 +26,18 @@ class Country {
     };
 
     async getCountryName() {
-        if (typeof this.name !== "string") {
-            const result = await countryServices.getCountryByCode(this.code);
-            if (result) {
-                this.name = result.Name;
-                return this.name
-            }
+        if (typeof this.name === "string") {
+            return this.name;
+        }
+    };
+
+    async getCountryPopulation() {
+        if (typeof this.name === "string") {
+            return this.population;
+        } else {
+            throw new Error("ERROR GETTING COUNTRY POPULATION")
         }
     };
 };
 
-module.exports = { Country };
+module.exports = Country;

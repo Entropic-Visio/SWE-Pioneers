@@ -434,9 +434,11 @@
   border: none;
 }
 .content-table__link--blue:hover {
+  font-weight: 600;
   color: blue;
 }
 .content-table__link--red:hover {
+  font-weight: 600;
   color: red;
 }
 .content-table__link--green {

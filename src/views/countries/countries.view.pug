@@ -7,7 +7,7 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script.
-       $(document).ready(function() {
+      $(document).ready(function() {
         $('.active-row').click(function() {
           var url = $(this).data('url');
           window.location.href = url;
@@ -17,7 +17,7 @@ html
   body
     .page
       h1.page.page__heading Countries
-      table.content-table
+      table.table-sortable.content-table
         thead 
           tr
             th Country Code 
@@ -34,7 +34,8 @@ html
               td #{country.Name}
               td #{country.Continent}
               td #{country.Region}
-              - const population = new Intl.NumberFormat().format(country.Population);
-              td #{population}
+              td #{country.Population}
               td 
                 a.content-table__link--green(href=`cities/id/${country.Capital}`) #{country.CapitalName} 
+            
+      script(src='scripts/table.js')

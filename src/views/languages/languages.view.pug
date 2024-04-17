@@ -23,17 +23,18 @@ html
             th Country Code
             th Language
             th Official Language
-            th Population
             th Percentage 
+            th Population 
           tr 
         tbody
           each language in languages
-            tr.active-row(data-url=`countryLangauges/Code/${language.Code}`)
-              td #{language.Code}
-              td #{language.Langauge}
-              td #{language.IsOffical}
-              - const population = new Intl.NumberFormat().format(language.Population);
-              td #{population}
-              td #{langauge.Percentage}
+            tr.active-row(data-url=`language/code/${language.countryCode}`)
+              td #{language.countryCode}
+              td #{language.language}
+              td #{language.isOfficial}
+              td #{language.percentage}
+              - const calculate_population = language.population * (language.percentage / 100); 
+              - const language_population = new Intl.NumberFormat().format(calculate_population);
+              td #{language_population}
 
-      script('scripts\table.js')
+      script(src='scripts/table.js')

@@ -31,18 +31,12 @@ async function getAllCountries() {
  * @returns {Promise<Object>} A promise that resolves to the city object if found, otherwise rejects with an error.
  */
 async function getCountryByCode(countryCode) { 
-    // Log the desired city ID being fetched
-    console.log("Country Code:", countryCode);
-
     // SQL query to select a city from the `city` table based on the given ID
     const sql = "SELECT * FROM `country` WHERE Code = ?";
 
     try {
         // Execute the SQL query asynchronously, passing the cityID as a parameter
         const [rows, fields] = await worldConnection.query(sql, [countryCode]);
-
-        // Log the retrieved city object
-        console.log(rows[0]);
 
         // Return the first city object from the result set
         return rows[0];

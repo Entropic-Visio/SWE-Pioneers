@@ -13,6 +13,7 @@ async function getAllLanguages() {
 
         // Get the number of cities returned
         console.log(`/languages: ${rows.length} rows`);
+        console.log(rows)
 
         // Return the reterived rows
         return rows;
