@@ -3,20 +3,38 @@ include ../components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | Countries  
+    title Pioneer | Countries
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
+    script('scripts/table.js')
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script.
+       $(document).ready(function() {
+        $('.active-row').click(function() {
+          var url = $(this).data('url');
+          window.location.href = url;
+        });
+      });
+
   body
     .page
       h1.page.page__heading Countries
-      tr
-        th
-        th 
-        th 
-        th 
-        th 
-      tr 
-        td 
-        td 
-        td 
-        td 
-        td 
-      tr 
+      table.content-table
+        thead 
+          tr
+            th Country Code 
+            th Name
+            th Continent
+            th Region
+            th Population 
+            th Capital City
+          tr
+        tbody 
+          each country in countries
+            tr.active-row(data-url=`countries/code/${country.Code}`)
+              td #{country.Code}
+              td #{country.Name}
+              td #{country.Continent}
+              td #{country.Region}
+              - const population = new Intl.NumberFormat().format(country.Population);
+              td #{population}
+              td #{country.Capital} 
