@@ -3,8 +3,39 @@ include ../components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | About Us
+    title Pioneer | Cities  
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
+    script('scripts/table.js')
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script.
+      $(document).ready(function() {
+        $('.active-row').click(function() {
+          var url = $(this).data('url');
+          window.location.href = url;
+        });
+      });
+
   body
     .page
-      h1.page.page__heading User Database
-      p.page.page__text-block Temporary User Database Page
+      h1.page.page__heading User Database  
+      table.table-sortable.content-table
+        thead
+          tr 
+            th ID
+            th Username 
+            th Email 
+            th User Type 
+            th Edit
+            th Delete 
+          tr 
+        tbody
+          each user in users
+            tr
+              td #{user.ID}
+              td #{user.Username}
+              td #{user.Email}
+              td #{user.UserType}
+              td
+                i.fa-solid.fa-pen-to-square.content-table__icons--center
+              td
+                i.fa-solid.fa-trash.content-table__icons--center

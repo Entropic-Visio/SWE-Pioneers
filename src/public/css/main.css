@@ -422,6 +422,9 @@
   background-color: #52AA5E;
   color: #ffffff;
 }
+.content-table tbody tr__icons--center {
+  text-align: center;
+}
 
 body {
   background-color: #388659;
