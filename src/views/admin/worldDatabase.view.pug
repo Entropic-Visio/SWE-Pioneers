@@ -1,0 +1,31 @@
+doctype html
+include ../components/navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneer | About Us
+  body
+    .page
+      h1.page.page__heading World Database
+      p.page.page__text-block Temporary World Database Page
+      table.table-sortable.content-table
+        thead
+          tr 
+            th ID
+            th Username 
+            th Email 
+            th User Type 
+            th Edit
+            th Delete 
+          tr 
+        tbody
+              td Empty 
+              td Empty 
+              td Empty 
+              td Empty 
+              td
+                a.content-table__link.content-table__link--blue(href="#")
+                  i.fa-solid.fa-pen-to-square
+              td 
+                a.content-table__link.content-table__link--red(href="#")
+                  i.fa-solid.fa-trash

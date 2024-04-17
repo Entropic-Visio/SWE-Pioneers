@@ -5,7 +5,7 @@ const languagesService = require('../services/languages.service.js');
 
 const GetWorldDatabaseView = (req, res) => {
     const isLoggedIn = isUserLoggedIn(req);
-    return res.render('world/worldDatabase.view.pug', { isLoggedIn, user: req.session.user });
+    return res.render('admin/worldDatabase.view.pug', { isLoggedIn, user: req.session.user });
 }
 
 module.exports = { GetWorldDatabaseView }
