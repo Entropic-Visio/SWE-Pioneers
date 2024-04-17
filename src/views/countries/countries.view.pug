@@ -5,7 +5,6 @@ html
     link(rel="stylesheet", href="/css/main.css")
     title Pioneer | Countries
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
-    script('scripts/table.js')
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script.
        $(document).ready(function() {
@@ -38,3 +37,5 @@ html
               - const population = new Intl.NumberFormat().format(country.Population);
               td #{population}
               td #{country.Capital} 
+   
+        script('scripts\table.js')

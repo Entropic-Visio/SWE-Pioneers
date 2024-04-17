@@ -3,6 +3,6 @@ const controller = require('../controllers/languages.controller.js');
 
 const router = express.Router();
 
-router.get('/', controller.GetLanguagesView);
+router.get('/', controller.GetLanguageView);
 
 module.exports = router;

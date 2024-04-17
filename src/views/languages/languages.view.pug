@@ -3,8 +3,37 @@ include ../components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | Languages 
+    title Pioneer | Langauges 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script.
+      $(document).ready(function() {
+        $('.active-row').click(function() {
+          var url = $(this).data('url');
+          window.location.href = url;
+        });
+      });
+
   body
     .page
-      h1.page.page__heading Languages
-      p.page.page__text-block Temporary Language Page
+      h1.page.page__heading Country Languages 
+      table.table-sortable.content-table
+        thead
+          tr 
+            th Country Code
+            th Language
+            th Official Language
+            th Population
+            th Percentage 
+          tr 
+        tbody
+          each language in languages
+            tr.active-row(data-url=`countryLangauges/Code/${language.Code}`)
+              td #{language.Code}
+              td #{language.Langauge}
+              td #{language.IsOffical}
+              - const population = new Intl.NumberFormat().format(language.Population);
+              td #{population}
+              td #{langauge.Percentage}
+
+      script('scripts\table.js')
