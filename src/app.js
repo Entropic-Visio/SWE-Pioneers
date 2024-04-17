@@ -13,11 +13,15 @@ const logoutRoute = require('./routes/logout.route.js');
 const dashboardRoute = require('./routes/dashboard.route.js');
 const accountSettingRoute = require('./routes/accountSetting.route.js');
 const adminPanelRoute = require('./routes/adminPanel.route.js');
+const worldDatabaseRoute = require('./routes/worldDatabase.route.js');
+const userDatabaseRoute = require('./routes/userDatabase.route.js');
 const countriesRoute = require('./routes/countries.route.js');
 const citiesRoute = require('./routes/cities.route.js');
 const langaugesRoute = require('./routes/languages.route.js');
+
 // ----------- IMPORT MIDDLEWARE ----------- //
 const isLoggedIn = require('./middlewares/isLoggedIn.middleware.js');
+const isAdmin = require('./middlewares/isAdmin.middleware.js');
 
 const app = express();
 const port = 3000;
@@ -45,7 +49,9 @@ app.use('/register', registerRoute);
 app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
 app.use('/account-setting', isLoggedIn, accountSettingRoute);
-app.use('/admin-panel', isLoggedIn, adminPanelRoute);
+app.use('/admin-panel', isLoggedIn, isAdmin, adminPanelRoute);
+app.use('/world-database', isLoggedIn, isAdmin, worldDatabaseRoute);
+app.use('/user-database', isLoggedIn, isAdmin, userDatabaseRoute);
 app.use('/dashboard', isLoggedIn, dashboardRoute);
 app.use('/countries', isLoggedIn, countriesRoute);
 app.use('/cities', isLoggedIn, citiesRoute);

@@ -3,14 +3,14 @@ const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
 
 const GetLoginView = (req, res) => {
     const isLoggedIn = isUserLoggedIn(req);
-    return res.render('login.view.pug', { isLoggedIn });
+    return res.render('user/login.view.pug', { isLoggedIn });
 };
 
 const LoginUser = async (req, res) => {
     try {
 
         if (!req.body.email || !req.body.password) {
-            return res.render('login.view.pug', { empty_email: !req.body.email, empty_password: !req.body.password });
+            return res.render('user/login.view.pug', { empty_email: !req.body.email, empty_password: !req.body.password });
         }
 
         const { email, password } = req.body;
@@ -18,7 +18,7 @@ const LoginUser = async (req, res) => {
         const result = await userService.verifyUser(email, password);
 
         if (!result) {
-            return res.render('login.view.pug', { userNotFound: true });
+            return res.render('user/login.view.pug', { userNotFound: true });
         }
 
         req.session.isLoggedIn = true;

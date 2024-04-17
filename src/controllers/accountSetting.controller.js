@@ -3,7 +3,7 @@ const userServices = require('../services/users.service.js');
 
 const GetAccountSettingView = (req, res) => {
     const isLoggedIn = isUserLoggedIn(req);
-    return res.render('accountSetting.view.pug', { isLoggedIn, user: req.session.user });
+    return res.render('user/accountSetting.view.pug', { isLoggedIn, user: req.session.user });
 }
 
 const DeleteUser = async (req, res) => {

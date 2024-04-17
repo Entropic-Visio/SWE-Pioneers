@@ -69,7 +69,18 @@
         & tbody tr:last-of-type {
             border-bottom: 2px solid #52AA5E ;
         }
-    
+
+        &[data-url] {
+            cursor: pointer;
+            color: #2b2b2b;
+
+            &:hover {
+                background-color: #52AA5E;
+                color: #ffffff;
+            }
+        }
+
+
 
     }
 

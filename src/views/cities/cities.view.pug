@@ -1,10 +1,20 @@
 doctype html
-include navbar.component.pug
+include ../components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
     title Pioneer | Cities  
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
     script('scripts/table.js')
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    script.
+      $(document).ready(function() {
+        $('.active-row').click(function() {
+          var url = $(this).data('url');
+          window.location.href = url;
+        });
+      });
+
   body
     .page
       h1.page.page__heading Cities 
@@ -19,9 +29,8 @@ html
           tr 
         tbody
           each city in cities
-            tr
-              td
-                a(href=`/cities/${i}`) #{city.ID}
+            tr.active-row(data-url=`cities/id/${city.ID}`)
+              td #{city.ID}
               td #{city.CountryCode}
               td #{city.Name}
               - const population = new Intl.NumberFormat().format(city.Population);

@@ -1,0 +1,20 @@
+doctype html
+include ../components/navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneer | Admin Panel 
+  body
+    .page
+      .card-container           
+        .card  
+          .card__content 
+            h3.card__content__title World Database   
+            p.card__content__paragraph World Database Settings 
+            a.card__content__button(href="/world-database") Access
+        
+        .card  
+          .card__content 
+            h3.card__content__title User Database   
+            p.card__content__paragraph User Database Settings 
+            a.card__content__button(href="/user-database") Access 
