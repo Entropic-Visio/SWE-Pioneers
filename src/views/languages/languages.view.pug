@@ -34,7 +34,6 @@ html
               td #{language.isOfficial}
               td #{language.percentage}
               - const calculate_population = language.population * (language.percentage / 100); 
-              - const language_population = new Intl.NumberFormat().format(calculate_population);
-              td #{language_population}
+              td #{calculate_population}
 
       script(src='scripts/table.js')
