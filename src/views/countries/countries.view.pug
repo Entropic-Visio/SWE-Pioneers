@@ -24,12 +24,35 @@ html
             }
           });
         });
+
+        $('#searchInput').click(function() {
+          $(this).addClass('expand');
+        });
+
+        $('#searchInput').blur(function() {
+          if ($(this).val() === '') {
+            $(this).removeClass('expand');
+          }
+        });
+
+        $('#searchInput').keyup(function() {
+          var searchText = $(this).val().toLowerCase();
+          $('.content-table tbody tr').each(function() {
+            var rowText = $(this).text().toLowerCase();
+            if (rowText.includes(searchText)) {
+              $(this).show();
+            } else {
+              $(this).hide();
+            }
+          });
+        });        
       });
 
   body
     .page
       h1.page.page__heading Countries
-      input#searchInput(type="text", placeholder="Search countries...")
+      .search-wrapper
+        input#searchInput(type="text", placeholder="Search countries...")
       table.table-sortable.content-table
         thead 
           tr

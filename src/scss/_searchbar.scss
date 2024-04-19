@@ -1,0 +1,26 @@
+@import 'fonts';
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+
+#searchInput {
+    font-family: $poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    padding: 8px; 
+    border: none;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+    outline: none;
+}
+  
+#searchInput.expand {
+    width: 350px;
+}
