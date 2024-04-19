@@ -277,25 +277,6 @@
     opacity: 1;
   }
 }
-.hero__heading {
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-  color: #FFFFFF;
-  z-index: 10;
-}
-.hero__link {
-  font-size: 40px;
-  font-weight: 700;
-  text-align: center;
-  color: #FFFFFF;
-  z-index: 10;
-  text-decoration: none;
-}
-.hero__link:hover {
-  color: #52AA5E;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
