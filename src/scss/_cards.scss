@@ -9,8 +9,8 @@
 }
 
 .card {
-    width: 90%; /* Take full width by default */
-    max-width: 525px; /* Maximum width for larger screens */
+    width: 90%; 
+    max-width: 525px; 
     background-color: $green;
     border-radius: 8px;
     overflow: hidden;
@@ -18,8 +18,8 @@
     margin: 20px;
     padding: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0; /* Initially set opacity to 0 */
-    animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
+    opacity: 0; 
+    animation: fadeIn 0.5s ease forwards; 
 
     &:hover {
         transform: translateY(-10px);

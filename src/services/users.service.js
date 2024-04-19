@@ -109,6 +109,16 @@ async function deleteUserFromDatabase(email, password) {
     }
 };
 
+async function deleteUserWithIDFromDatabase(id) {
+    try {
+        await userConnection.query("DELETE FROM users WHERE ID = ?", [id]);
+        return true
+    } catch (error) {
+        console.error('Error Deleting User: ', error);
+        return false;
+    }
+};
+
 module.exports = { 
     getAllUsers,
     getUserFromDatabase, 
@@ -116,4 +126,5 @@ module.exports = {
     addUserToDatabase,
     verifyUser,
     deleteUserFromDatabase,
+    deleteUserWithIDFromDatabase
 };

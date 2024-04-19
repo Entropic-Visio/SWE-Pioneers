@@ -19,13 +19,15 @@ html
             th Delete 
           tr 
         tbody
-              td Empty 
+              td 1 
               td Empty 
               td Empty 
               td Empty 
               td
-                a.content-table__link.content-table__link--blue(href="#")
-                  i.fa-solid.fa-pen-to-square
+                form(action=`world-database/edit/1`, method="POST")
+                  button.content-table__input-field.content-table__input-field--blue(type="submit")
+                    i.fa-solid.fa-pen-to-square
               td 
-                a.content-table__link.content-table__link--red(href="#")
-                  i.fa-solid.fa-trash
+                form(action=`world-database/delete/1`, method="POST")
+                  button.content-table__input-field.content-table__input-field--red(type="submit")
+                    i.fa-solid.fa-trash

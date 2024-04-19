@@ -5,7 +5,6 @@ html
     link(rel="stylesheet", href="/css/main.css")
     title Pioneer | Cities  
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
-    script('scripts/table.js')
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script.
       $(document).ready(function() {
@@ -29,15 +28,17 @@ html
             th Delete 
           tr 
         tbody
-          each user in users
+          each val in users
             tr
-              td #{user.ID}
-              td #{user.Username}
-              td #{user.Email}
-              td #{user.UserType}
+              td #{val.ID}
+              td #{val.Username}
+              td #{val.Email}
+              td #{val.UserType}
               td
-                a.content-table__link.content-table__link--blue(href="#")
-                  i.fa-solid.fa-pen-to-square
+                form(action=`user-database/edit/${val.ID}`, method="POST")
+                  button.content-table__input-field.content-table__input-field--blue(type="submit")
+                    i.fa-solid.fa-pen-to-square
               td 
-                a.content-table__link.content-table__link--red(href="#")
-                  i.fa-solid.fa-trash
+                form(action=`user-database/delete/${val.ID}`, method="POST")
+                  button.content-table__input-field.content-table__input-field--red(type="submit")
+                    i.fa-solid.fa-trash
