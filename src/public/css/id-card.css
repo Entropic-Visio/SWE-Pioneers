@@ -1,0 +1,51 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.id-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 100px;
+}
+
+.id-card {
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  max-height: 600px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+.id-card__Content {
+  padding: 16px;
+}
+.id-card__Content__text-block {
+  text-align: center;
+  flex-grow: 1;
+}
+.id-card__Content__text-block__heading {
+  background-color: #52AA5E;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.id-card__Content__img {
+  width: 100px;
+  height: 100px;
+  background-color: #52AA5E;
+  justify-content: flex-start;
+}
+
+/*# sourceMappingURL=id-card.css.map */
