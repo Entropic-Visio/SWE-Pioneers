@@ -1,0 +1,23 @@
+doctype html
+include ../components/navbar.component.pug
+html
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneer | Dashboard 
+  body
+    .page
+      h1.page.page__heading Cities Dashboard 
+      .card-container           
+        .card  
+          img.card__img(src="images/dashboard/city-icon.png", alt="Continent")
+          .card__content 
+            h3.card__content__title All Cities 
+            p.card__content__paragraph View All Cities Here. 
+            a.card__content__button(href="/cities/all-cities") Access 
+
+        .card  
+          img.card__img(src="images/dashboard/city-icon.png", alt="Continent")
+          .card__content 
+            h3.card__content__title Capital Cities 
+            p.card__content__paragraph View Capital Cities Here. 
+            a.card__content__button(href="/cities/capital-cities") Access

@@ -3,7 +3,7 @@ include ../components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | Langauges 
+    title Pioneer | Cities  
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js")
     script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     script.
@@ -50,26 +50,25 @@ html
 
   body
     .page
-      h1.page.page__heading Country Languages 
+      h1.page.page__heading Capital Cities  
       .search-wrapper
-        input#searchInput(type="text", placeholder="Search countries...")
+        input#searchInput(type="text", placeholder="Search Cities...")
       table.table-sortable.content-table
         thead
           tr 
-            th Country Code
-            th Language
-            th Official Language
-            th Percentage 
-            th Population 
-          tr
+            th ID
+            th Country
+            th City
+            th Population
+            th District
+          tr 
         tbody
-          each language in languages
-            tr.active-row(data-url=`language/code/${language.countryCode}`)
-              td #{language.countryCode}
-              td #{language.language}
-              td #{language.isOfficial}
-              td #{language.percentage}
-              - const calculate_population = language.population * (language.percentage / 100); 
-              td #{calculate_population}
+          each city in cities
+            tr.active-row(data-url=`cities/id/${city.ID}`)
+              td #{city.ID}
+              td #{city.CountryCode}
+              td #{city.Name}
+              td #{city.Population}
+              td #{city.District}
 
-      script(src='scripts/table.js')
+    script(src='../scripts/table.js')

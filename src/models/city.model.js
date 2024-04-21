@@ -2,21 +2,21 @@ const citiesService = require('../services/cities.service.js');
 
 class City {
     constructor(id) {
-        this.id = parseInt(id);
-        this.name = null;
-        this.countryCode = null;
-        this.district = null;
-        this.population = null;
+        this.ID = parseInt(id);
+        this.Name = null;
+        this.CountryCode = null;
+        this.District = null;
+        this.Population = null;
     };
 
     async initializeCity() {
-        if (typeof this.name !== "string") {
-                const result = await citiesService.getCityById(parseInt(this.id));
+        if (typeof this.Name !== "string") {
+                const result = await citiesService.getCityById(this.ID);
                 if (result) { 
-                    this.name = result.Name;
-                    this.countryCode = result.CountryCode;
-                    this.district = result.District;
-                    this.population = parseInt(result.Population);
+                    this.Name = result.Name;
+                    this.CountryCode = result.CountryCode;
+                    this.District = result.District;
+                    this.Population = parseInt(result.Population);
                 } else {
                     throw new Error("City not found");
                 }
@@ -24,11 +24,11 @@ class City {
     };
 
     async getCityName() {
-        if (typeof this.name !== "string") {
+        if (typeof this.Name !== "string") {
             const result = await citiesService.getCityById(this.id);
             if (result) {
-                this.name = result.Name;
-                return this.name;
+                this.Name = result.Name;
+                return this.Name;
             }
         }
     }
