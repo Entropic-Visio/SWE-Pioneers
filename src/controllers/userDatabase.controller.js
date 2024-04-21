@@ -8,7 +8,6 @@ const GetUserDatabaseView = async (req, res) => {
 };
 
 const DeleteUserFromDatabase = async (req, res) => {
-    const isLoggedIn = isUserLoggedIn(req);
     const userID = req.params.id
     console.log("Recieved User ID:", userID);
 

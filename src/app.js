@@ -18,6 +18,7 @@ const userDatabaseRoute = require('./routes/userDatabase.route.js');
 const countriesRoute = require('./routes/countries.route.js');
 const citiesRoute = require('./routes/cities.route.js');
 const langaugesRoute = require('./routes/languages.route.js');
+const reportsRoute = require('./routes/reports.route.js');
 
 // ----------- IMPORT MIDDLEWARE ----------- //
 const isLoggedIn = require('./middlewares/isLoggedIn.middleware.js');
@@ -38,7 +39,7 @@ app.use(session({
     cookie: { 
         secure: false,
         maxAge: 1000 * 60 * 60 * 24
-     }
+    }
 }));
 
 // ----------- ROUTES ----------- //
@@ -56,6 +57,7 @@ app.use('/dashboard', isLoggedIn, dashboardRoute);
 app.use('/countries', isLoggedIn, countriesRoute);
 app.use('/cities', isLoggedIn, citiesRoute);
 app.use('/languages', isLoggedIn, langaugesRoute);
+app.use('/reports', isLoggedIn, reportsRoute);
 
 // ----------- RUN ----------- //
 app.listen(port, () => {
