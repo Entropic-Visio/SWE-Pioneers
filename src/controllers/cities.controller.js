@@ -78,13 +78,18 @@ const GetCityWithIDView = async (req, res) => {
         const isLoggedIn = isUserLoggedIn(req);
         const cityID = parseInt(req.params.id);
         const city = new City(cityID);
-
         await city.initializeCity();
-
 
         if (!city.Name) {
             return res.status(404).render('error.view.pug', {error: {code: 404, message: 'City Not Found'}});
         }
+
+        const country = new Country(city.CountryCode);
+        await country.initializeCountry();
+
+        city.Continent = country.Continent;
+        city.Region = country.Region;
+        city.CountryName = country.Name;
 
         return res.render('cities/city.report.pug', {isLoggedIn, user: req.session.user, city});
 
