@@ -21,8 +21,7 @@ const GetAllCitiesView = async (req, res) => {
         const results = await citiesService.getAllCities();
 
         const cities = await Promise.all(results.map(async city => {
-            const countryCode = parseInt(city.CountryCode);
-            const country = new Country(countryCode);
+            const country = new Country(city.CountryCode);
             await country.initializeCountry();
             city.Continent = await country.getCountryContinent().catch(error => { 
                 console.error("Error fetching Country name:", error); 
