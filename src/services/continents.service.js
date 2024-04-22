@@ -4,15 +4,15 @@ const { worldConnection } = require('./db.js');
  * Retrieves all cities from the database.
  * @returns {Promise<Array<Object>>} An array of city objects.
  */
-async function getAllContinents() {
+async function getContinent(continent) {
     // SQL query to select all cities from the 'city' table
-    const sql = "SELECT * FROM `country`";
+    const sql = "SELECT Population FROM `country` WHERE Continent = ?";
     try {
         // Execute the SQL query asynchronously
-        const [rows, fields] = await worldConnection.query(sql);
+        const [rows, fields] = await worldConnection.query(sql, [continent]);
 
         // Get the number of cities returned
-        console.log(`/cities: ${rows.length} rows`);
+        console.log(rows);
 
         // Return the reterived rows
         return rows;
@@ -24,3 +24,5 @@ async function getAllContinents() {
         return res.status(500).render("500");
     }
 };
+
+module.exports = { getContinent };

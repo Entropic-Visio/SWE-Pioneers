@@ -18,8 +18,9 @@ const userDatabaseRoute = require('./routes/userDatabase.route.js');
 const countriesRoute = require('./routes/countries.route.js');
 const citiesRoute = require('./routes/cities.route.js');
 const langaugesRoute = require('./routes/languages.route.js');
+const continentRoute = require('./routes/continents.route.js');
 const reportsRoute = require('./routes/reports.route.js');
-const populationRoute = require('./routes/population.route.js')
+const populationRoute = require('./routes/population.route.js');
 // ----------- IMPORT MIDDLEWARE ----------- //
 const isLoggedIn = require('./middlewares/isLoggedIn.middleware.js');
 const isAdmin = require('./middlewares/isAdmin.middleware.js');
@@ -57,8 +58,9 @@ app.use('/dashboard', isLoggedIn, dashboardRoute);
 app.use('/countries', isLoggedIn, countriesRoute);
 app.use('/cities', isLoggedIn, citiesRoute);
 app.use('/languages', isLoggedIn, langaugesRoute);
+app.use('/continents', isLoggedIn, continentRoute);
 app.use('/reports', isLoggedIn, reportsRoute);
-app.use('/population', isLoggedIn, populationRoute)
+app.use('/population', isLoggedIn, populationRoute);
 
 // ----------- RUN ----------- //
 app.listen(port, () => {

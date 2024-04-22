@@ -3,9 +3,17 @@ include components/navbar.component.pug
 html
   head
     link(rel="stylesheet", href="/css/main.css")
-    title Pioneer | Contact Us
+    title Pioneer | Contact 
   body
     .page
-      h1.page.page__heading Contact Us
-      p.page.page__text-block pioneers@helpdesk.co.uk
-    
+      .id-card-container 
+        .id-card 
+          h1.id-card__heading Contact Us
+          p.id-card__text-block(style="text-align: center; padding: 0px") 
+            i.fa-solid.fa-envelope
+            |    
+            b pioneer@admin.net
+          p.id-card__text-block(style="text-align: center; padding: 0px") 
+            i.fa-solid.fa-phone
+            |     
+            b +44 73920581647
