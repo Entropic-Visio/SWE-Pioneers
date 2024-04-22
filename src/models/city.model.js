@@ -1,10 +1,15 @@
 const citiesService = require('../services/cities.service.js');
+const countriesService = require('../services/countries.service.js');
+
 
 class City {
     constructor(id) {
         this.ID = parseInt(id);
         this.Name = null;
         this.CountryCode = null;
+        this.CountryName = null;
+        this.Region = null;
+        this.Continent = null;
         this.District = null;
         this.Population = null;
     };
@@ -24,12 +29,11 @@ class City {
     };
 
     async getCityName() {
-        if (typeof this.Name !== "string") {
-            const result = await citiesService.getCityById(this.ID);
-            if (result) {
-                this.Name = result.Name;
-                return this.Name;
-            }
+        if (typeof this.Name === "string") {
+            this.Name = result.Name;
+            return this.Name;
+        } else {
+            console.error("Name Doesnt Exist")
         }
     }
 };
