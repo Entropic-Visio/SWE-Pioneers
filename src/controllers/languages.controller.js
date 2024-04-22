@@ -15,7 +15,7 @@ const GetLanguageView = async (req, res) => {
             const langaugeWithPop = new Language(language.CountryCode, language.Language)
             await langaugeWithPop.initializeLanguage();
             console.log(langaugeWithPop);
-            langaugeWithPop.population = await country.getCountryPopulation().catch(error => { 
+            langaugeWithPop.Population = await country.getCountryPopulation().catch(error => { 
                 console.error("Error fetching city name:", error); 
                 return null; 
             });

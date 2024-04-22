@@ -27,8 +27,8 @@ async function getAllLanguages() {
 };
 
 /**
- * Retrieves a city from the database based on the provided city ID.
- * @param {number} cityID - The ID of the city to retrieve.
+ * Retrieves a country from the database based on the provided city ID.
+ * @param {string} countryCode - The country code of the country to retrieve.
  * @returns {Promise<Object>} A promise that resolves to the city object if found, otherwise rejects with an error.
  */
 async function getLanguageByCode(countryCode) { 

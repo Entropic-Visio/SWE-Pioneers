@@ -14,7 +14,7 @@ const GetCountriesView = async (req, res) => {
         const city = new City(cityID);
         country.CapitalName = await city.getCityName().catch(error => { 
             console.error("Error fetching city name:", error); 
-            return null; 
+            return null;
         });
         return country;
     }));
@@ -44,12 +44,13 @@ const GetCountryWithCountryCodeView = async (req, res) => {
         await city.initializeCity();
 
         country.CapitalName = city.Name;
-                
+
         return res.render('countries/country.report.pug', {isLoggedIn, user: req.session.user, country});
     } catch (error) {
         console.log(error);
         return res.status(500).render('error.view.pug', {error: {code: 500, message: 'Internal Server Error'}});
     }
 
-}
+};
+
 module.exports = { GetCountriesView, GetCountryWithCountryCodeView }

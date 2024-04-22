@@ -9,6 +9,7 @@ class Country {
         this.Region = null;
         this.SurfaceArea = null;
         this.IndepYear = null;
+        this.Population = null;
         this.LifeExpectancy = null;
         this.GNP = null;
         this.GNPOld = null;
@@ -29,6 +30,7 @@ class Country {
                 this.Region = result.Region;
                 this.SurfaceArea = result.SurfaceArea;
                 this.IndepYear = result.IndepYear;
+                this.Population = result.Population;
                 this.LifeExpectancy = result.LifeExpectancy;
                 this.GNP = result.GNP;
                 this.GNPOld = result.GNPOld;

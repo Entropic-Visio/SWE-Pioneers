@@ -2,18 +2,18 @@ const languagesService = require('../services/languages.service.js');
 
 class Language {
     constructor(countryCode, language) {
-        this.countryCode = countryCode;
-        this.language = language;
-        this.isOfficial = null;
-        this.percentage = null;
-        this.population = null;
+        this.CountryCode = countryCode;
+        this.Language = language;
+        this.IsOfficial = null;
+        this.Percentage = null;
+        this.Population = null;
     }
 
     async initializeLanguage() {
-        const result = await languagesService.getLanguageByCode(this.countryCode);
+        const result = await languagesService.getLanguageByCode(this.CountryCode);
         if (result) {
-            this.isOfficial = result.IsOfficial;
-            this.percentage = result.Percentage;
+            this.IsOfficial = result.IsOfficial;
+            this.Percentage = result.Percentage;
         } else {
             throw new Error("Language not found");
         }

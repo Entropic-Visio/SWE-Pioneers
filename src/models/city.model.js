@@ -25,7 +25,7 @@ class City {
 
     async getCityName() {
         if (typeof this.Name !== "string") {
-            const result = await citiesService.getCityById(this.id);
+            const result = await citiesService.getCityById(this.ID);
             if (result) {
                 this.Name = result.Name;
                 return this.Name;

@@ -64,12 +64,12 @@ html
           tr
         tbody
           each language in languages
-            tr.active-row(data-url=`language/code/${language.countryCode}`)
-              td #{language.countryCode}
-              td #{language.language}
-              td #{language.isOfficial}
-              td #{language.percentage}
-              - const calculate_population = language.population * (language.percentage / 100); 
+            tr.active-row(data-url=`language/code/${language.CountryCode}`)
+              td #{language.CountryCode}
+              td #{language.Language}
+              td #{language.IsOfficial}
+              td #{language.Percentage}
+              - const calculate_population = language.Population * (language.Percentage / 100); 
               td #{calculate_population}
 
       script(src='scripts/table.js')

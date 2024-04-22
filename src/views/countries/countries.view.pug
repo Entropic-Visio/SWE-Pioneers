@@ -62,7 +62,6 @@ html
             th Region
             th Population 
             th Capital City
-          tr
         tbody 
           each country in countries
             tr.active-row(data-url=`countries/code/${country.Code}`)
@@ -71,7 +70,7 @@ html
               td #{country.Continent}
               td #{country.Region}
               td #{country.Population}
-              td 
+              td
                 a.content-table__link--green(href=`cities/id/${country.Capital}`) #{country.CapitalName} 
-            
+      
       script(src='scripts/table.js')
