@@ -512,6 +512,7 @@
 
 .id-card {
   width: 90%;
+  max-width: 800px;
   height: 90%;
   background-color: white;
   border-radius: 8px;

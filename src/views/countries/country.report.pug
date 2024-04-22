@@ -21,12 +21,15 @@ include ../components/navbar.component.pug
           h2.id-card__sub-heading SurfaceArea 
           p.id-card__text-block #{country.SurfaceArea}
           h2.id-card__sub-heading Independence Year
-          p.id-card__text-block #{country.IndepYear}
+          if country.IndepYear === false 
+            p.id-card__text-block Country Has Not Declared Independence
+          else 
+            p.id-card__text-block #{country.IndepYear}
           h2.id-card__sub-heading Life Expectancy
           p.id-card__text-block #{country.LifeExpectancy} Years
-          h2.id-card__sub-heading GNP  
+          h2.id-card__sub-heading Gross National Product   
           p.id-card__text-block #{country.GNP}
-          h2.id-card__sub-heading GNPOld   
+          h2.id-card__sub-heading Old Gross National Product    
           p.id-card__text-block #{country.GNPOld}  
           h2.id-card__sub-heading Local Name   
           p.id-card__text-block #{country.LocalName}     
@@ -35,5 +38,5 @@ include ../components/navbar.component.pug
           h2.id-card__sub-heading Head Of State
           p.id-card__text-block #{country.HeadOfState} 
           h2.id-card__sub-heading Capital
-          p.id-card__text-block #{country.Capital}     
+          p.id-card__text-block #{country.CapitalName}     
              

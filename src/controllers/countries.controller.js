@@ -35,7 +35,16 @@ const GetCountryWithCountryCodeView = async (req, res) => {
         if (!country.Name) {
             return res.status(404).render('error.view.pug', {error: {code: 404, message: 'Country Not Found'}});
         }
-        
+
+        if (!country.IndepYear) {
+            country.IndepYear = false;
+        } 
+
+        const city = new City(country.CapitalID);
+        await city.initializeCity();
+
+        country.CapitalName = city.Name;
+                
         return res.render('countries/country.report.pug', {isLoggedIn, user: req.session.user, country});
     } catch (error) {
         console.log(error);

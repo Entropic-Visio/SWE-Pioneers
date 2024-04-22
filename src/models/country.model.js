@@ -15,29 +15,30 @@ class Country {
         this.LocalName = null;
         this.GovernmentForm = null;
         this.HeadOfState = null;
-        this.Capital = null;
+        this.CapitalID = null;
+        this.CapitalName = null;
     };
 
     async initializeCountry() {
         if (typeof this.Name !== "string") {
-                const result = await countryServices.getCountryByCode(this.Code);
-                if (result) { 
-                    this.Code2 = result.Code2;
-                    this.Name = result.Name;
-                    this.Continent = result.Continent;
-                    this.Region = result.Region;
-                    this.SurfaceArea = result.SurfaceArea;
-                    this.IndepYear = result.IndepYear;
-                    this.LifeExpectancy = result.LifeExpectancy;
-                    this.GNP = result.GNP;
-                    this.GNPOld = result.GNPOld;
-                    this.LocalName = result.LocalName;
-                    this.GovernmentForm = result.GovernmentForm;
-                    this.HeadOfState = result.HeadOfState;
-                    this.Capital = result.Capital;
-                } else {
-                    throw new Error("Country not found");
-                }
+            const result = await countryServices.getCountryByCode(this.Code);
+            if (result) { 
+                this.Code2 = result.Code2;
+                this.Name = result.Name;
+                this.Continent = result.Continent;
+                this.Region = result.Region;
+                this.SurfaceArea = result.SurfaceArea;
+                this.IndepYear = result.IndepYear;
+                this.LifeExpectancy = result.LifeExpectancy;
+                this.GNP = result.GNP;
+                this.GNPOld = result.GNPOld;
+                this.LocalName = result.LocalName;
+                this.GovernmentForm = result.GovernmentForm;
+                this.HeadOfState = result.HeadOfState;
+                this.CapitalID = result.Capital;
+            } else {
+                throw new Error("Country not found");
+            }
         }
     };
 
