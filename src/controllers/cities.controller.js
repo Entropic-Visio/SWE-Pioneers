@@ -1,5 +1,5 @@
 const citiesService = require('../services/cities.service.js');
-const countryServices = require('../services/countries.service.js');
+const countriesService = require('../services/countries.service.js');
 
 const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
 const City = require('../models/city.model.js');
@@ -48,10 +48,26 @@ const GetAllCitiesView = async (req, res) => {
 const GetCapitalCitiesView = async (req, res) => {
     try {
         const isLoggedIn = isUserLoggedIn(req);
-        const results = await citiesService.getAllCities();
+        const results = await countriesService.getAllCountries();
+        const capitalCities = await Promise.all(results.map(async country => {
+            try {
+                const city = new City(country.Capital);
+                await city.initializeCity();
+                city.Region = await country.Region;
+                city.Continent = await country.Continent;
+                city.CountryName = await country.Name;
+                console.log(city);
+                return city;
+            } catch (error) {
+                console.error(error.message)
+                return null;
+            }
+        }));
 
-        return res.render('cities/capitalCities.view.pug', { isLoggedIn, user: req.session.user, cities: results });
-    } catch {
+        const filteredCities = capitalCities.filter(city => city !== null);
+        
+        return res.render('cities/capitalCities.view.pug', { isLoggedIn, user: req.session.user, cities: filteredCities });
+    } catch (error) {
         console.error("Error Fetching Cities: ", error.message);
         return error
     }
@@ -65,11 +81,13 @@ const GetCityWithIDView = async (req, res) => {
 
         await city.initializeCity();
 
+
         if (!city.Name) {
             return res.status(404).render('error.view.pug', {error: {code: 404, message: 'City Not Found'}});
         }
 
         return res.render('cities/city.report.pug', {isLoggedIn, user: req.session.user, city});
+
     } catch (error) {
         console.log(error);
         return res.status(500).render('error.view.pug', {error: {code: 500, message: 'Internal Server Error'}});
