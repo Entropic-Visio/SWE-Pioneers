@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../controllers/populationReport.controller.js');
+const controller = require('../controllers/population.controller.js');
 
 const router = express.Router();
 
