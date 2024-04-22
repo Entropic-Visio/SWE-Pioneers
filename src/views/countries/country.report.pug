@@ -1,0 +1,39 @@
+doctype html
+include ../components/navbar.component.pug
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneers | #{country.Name} Report 
+  body
+    .page
+      .id-card-container 
+        .id-card
+          h1.id-card__heading #{country.Name} 
+          h2.id-card__sub-heading Country Code Alpha-2
+          p.id-card__text-block #{country.Code2}
+          h2.id-card__sub-heading Country Code Alpha-3
+          p.id-card__text-block #{country.Code}
+          h2.id-card__sub-heading Name
+          p.id-card__text-block #{country.Name}
+          h2.id-card__sub-heading Continent  
+          p.id-card__text-block #{country.Continent}
+          h2.id-card__sub-heading Region   
+          p.id-card__text-block #{country.Region}
+          h2.id-card__sub-heading SurfaceArea 
+          p.id-card__text-block #{country.SurfaceArea}
+          h2.id-card__sub-heading Independence Year
+          p.id-card__text-block #{country.IndepYear}
+          h2.id-card__sub-heading Life Expectancy
+          p.id-card__text-block #{country.LifeExpectancy} Years
+          h2.id-card__sub-heading GNP  
+          p.id-card__text-block #{country.GNP}
+          h2.id-card__sub-heading GNPOld   
+          p.id-card__text-block #{country.GNPOld}  
+          h2.id-card__sub-heading Local Name   
+          p.id-card__text-block #{country.LocalName}     
+          h2.id-card__sub-heading Government Form   
+          p.id-card__text-block #{country.GovernmentForm}
+          h2.id-card__sub-heading Head Of State
+          p.id-card__text-block #{country.HeadOfState} 
+          h2.id-card__sub-heading Capital
+          p.id-card__text-block #{country.Capital}     
+             

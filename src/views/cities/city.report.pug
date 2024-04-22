@@ -5,12 +5,16 @@ include ../components/navbar.component.pug
     title Pioneers | #{city.Name} Report 
   body
     .page
-        header
-        section
-        h2.logo--hover #{city.Name}
-        p.text-block.text-blockparagraph.text-blockparagraph--align-left ID: #{city.ID} 
-        p.text-block.text-blockparagraph.text-blockparagraph--align-left Country Code: #{city.CountryCode}
-        p.text-block.text-blockparagraph.text-blockparagraph--align-left Name: #{city.Name}
-        p.text-block.text-blockparagraph.text-blockparagraph--align-left Population: #{city.Population}
-        p.text-block.text-blockparagraph.text-blockparagraph--align-left District: #{city.District}
-        footer
+      .id-card-container 
+        .id-card  
+          h1.id-card__heading #{city.Name} 
+          h2.id-card__sub-heading ID 
+          p.id-card__text-block #{city.ID}
+          h2.id-card__sub-heading Country Code 
+          p.id-card__text-block #{city.CountryCode}
+          h2.id-card__sub-heading Name
+          p.id-card__text-block #{city.Name}
+          h2.id-card__sub-heading Population  
+          p.id-card__text-block #{city.Population}
+          h2.id-card__sub-heading District   
+          p.id-card__text-block #{city.District}

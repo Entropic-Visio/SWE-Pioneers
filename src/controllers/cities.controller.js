@@ -36,6 +36,7 @@ const GetCapitalCitiesView = async (req, res) => {
 
 const GetCityWithIDView = async (req, res) => {
     try {
+        const isLoggedIn = isUserLoggedIn(req);
         const cityID = parseInt(req.params.id);
         const city = new City(cityID);
 
@@ -44,9 +45,8 @@ const GetCityWithIDView = async (req, res) => {
         if (!city.Name) {
             return res.status(404).render('error.view.pug', {error: {code: 404, message: 'City Not Found'}});
         }
-        console.log(city.Name);
 
-        return res.render('cities/city.report.pug', {city: city});
+        return res.render('cities/city.report.pug', {isLoggedIn, user: req.session.user, city});
     } catch (error) {
         console.log(error);
         return res.status(500).render('error.view.pug', {error: {code: 500, message: 'Internal Server Error'}});

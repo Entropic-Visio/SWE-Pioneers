@@ -27,24 +27,24 @@ async function getAllCountries() {
 
 /**
  * Retrieves a city from the database based on the provided city ID.
- * @param {number} cityID - The ID of the city to retrieve.
+ * @param {string} countryCode - The ID of the city to retrieve.
  * @returns {Promise<Object>} A promise that resolves to the city object if found, otherwise rejects with an error.
  */
 async function getCountryByCode(countryCode) { 
-    // SQL query to select a city from the `city` table based on the given ID
+    // SQL query to select a country from the `country` table based on the given code
     const sql = "SELECT * FROM `country` WHERE Code = ?";
 
     try {
-        // Execute the SQL query asynchronously, passing the cityID as a parameter
+        // Execute the SQL query asynchronously, passing the country code as a parameter
         const [rows, fields] = await worldConnection.query(sql, [countryCode]);
 
-        // Return the first city object from the result set
+        // Return the first country object from the result set
         return rows[0];
     } catch (error) {
         // Handle errors that occur during database query execution
         console.error("Error Fetching Country by Code: ", error);
         
-        // Throw a new error if city retrieval fails
+        // Throw a new error if country retrieval fails
         throw new Error("Failed to Fetch Country by code");
     }
 };

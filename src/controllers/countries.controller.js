@@ -1,5 +1,6 @@
 const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
 const City = require('../models/city.model.js');
+const Country = require('../models/country.model.js');
 const countryServices = require('../services/countries.service.js');
 const citiesService = require('../services/cities.service.js');
 
@@ -20,4 +21,26 @@ const GetCountriesView = async (req, res) => {
 
     return res.render('countries/countries.view.pug', { isLoggedIn, user: req.session.user, countries: countryWithCapitalNames });
 }
-module.exports = { GetCountriesView }
+
+const GetCountryWithCountryCodeView = async (req, res) => {
+    try {
+        const isLoggedIn = isUserLoggedIn(req);
+        const countryCode = req.params.code;
+
+        console.log(countryCode);
+
+        const country = new Country(countryCode);
+        await country.initializeCountry();
+
+        if (!country.Name) {
+            return res.status(404).render('error.view.pug', {error: {code: 404, message: 'Country Not Found'}});
+        }
+        
+        return res.render('countries/country.report.pug', {isLoggedIn, user: req.session.user, country});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).render('error.view.pug', {error: {code: 500, message: 'Internal Server Error'}});
+    }
+
+}
+module.exports = { GetCountriesView, GetCountryWithCountryCodeView }
