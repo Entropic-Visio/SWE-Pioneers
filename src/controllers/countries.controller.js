@@ -36,14 +36,21 @@ const GetCountryWithCountryCodeView = async (req, res) => {
             return res.status(404).render('error.view.pug', {error: {code: 404, message: 'Country Not Found'}});
         }
 
+        if (country.CapitalID) {
+            const city = new City(country.CapitalID);
+            await city.initializeCity();
+            country.CapitalName = city.Name;
+        } else {
+            country.CapitalName = false;
+        }
+
         if (!country.IndepYear) {
             country.IndepYear = false;
-        } 
+        }
 
-        const city = new City(country.CapitalID);
-        await city.initializeCity();
-
-        country.CapitalName = city.Name;
+        if (!country.GNPOld) {
+            country.GNPOld = false;
+        }
 
         return res.render('countries/country.report.pug', {isLoggedIn, user: req.session.user, country});
     } catch (error) {
