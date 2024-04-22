@@ -10,5 +10,8 @@ include ../components/navbar.component.pug
           h1.id-card__heading #{language.Language} 
           h2.id-card__sub-heading Country Code   
           p.id-card__text-block #{language.CountryCode}
-          h2.id-card__sub-heading Official Language 
-          p.id-card__text-block #{language.IsOfficial}
+          h2.id-card__sub-heading Official Language
+          if language.IsOfficial === "T" 
+            p.id-card__text-block #{language.Language} is the Official Language of #{language.CountryCode}.
+          else 
+            p.id-card__text-block #{language.Language} is not the Official Language of #{language.CountryCode}.

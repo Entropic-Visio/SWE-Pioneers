@@ -53,8 +53,18 @@ class Country {
     async getCountryPopulation() {
         if (typeof this.Name === "string") {
             return this.Population;
-        } else {
-            throw new Error("ERROR GETTING COUNTRY POPULATION")
+        }
+    };
+
+    async getCountryContinent() {
+        if (typeof this.Name === "string") {
+            return this.Continent;
+        }
+    };
+
+    async getCountryRegion() {
+        if (typeof this.Name === "string") {
+            return this.Region;
         }
     };
 };

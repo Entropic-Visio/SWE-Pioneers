@@ -1,6 +1,9 @@
 const citiesService = require('../services/cities.service.js');
+const countryServices = require('../services/countries.service.js');
+
 const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
 const City = require('../models/city.model.js');
+const Country = require('../models/country.model.js');
 
 const GetCitiesDashboardView = async (req, res) => {
     try {
@@ -16,7 +19,27 @@ const GetAllCitiesView = async (req, res) => {
     try {
         const isLoggedIn = isUserLoggedIn(req);
         const results = await citiesService.getAllCities();
-        return res.render('cities/allCities.view.pug', { isLoggedIn, user: req.session.user, cities: results });
+
+        const cities = await Promise.all(results.map(async city => {
+            const countryCode = parseInt(city.CountryCode);
+            const country = new Country(countryCode);
+            await country.initializeCountry();
+            city.Continent = await country.getCountryContinent().catch(error => { 
+                console.error("Error fetching Country name:", error); 
+                return null;
+            });
+            city.Region = await country.getCountryRegion().catch(error => { 
+                console.error("Error fetching Country Region:", error); 
+                return null;
+            });
+            city.CountryName = await country.getCountryName().catch(error => { 
+                console.error("Error fetching Country Region:", error); 
+                return null;
+            });
+            return city
+        }))
+
+        return res.render('cities/allCities.view.pug', { isLoggedIn, user: req.session.user, cities });
     } catch (error) {
         console.error("Error Fetching Cities: ", error.message);
         return error
@@ -27,6 +50,7 @@ const GetCapitalCitiesView = async (req, res) => {
     try {
         const isLoggedIn = isUserLoggedIn(req);
         const results = await citiesService.getAllCities();
+
         return res.render('cities/capitalCities.view.pug', { isLoggedIn, user: req.session.user, cities: results });
     } catch {
         console.error("Error Fetching Cities: ", error.message);
