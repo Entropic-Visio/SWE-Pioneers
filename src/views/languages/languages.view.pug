@@ -64,7 +64,7 @@ html
           tr
         tbody
           each language in languages
-            tr.active-row(data-url=`language/code/${language.CountryCode}`)
+            tr.active-row(data-url=`/languages/code/${language.CountryCode}/language/${language.Language}`)
               td #{language.CountryCode}
               td #{language.Language}
               td #{language.IsOfficial}

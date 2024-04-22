@@ -10,7 +10,7 @@ class Language {
     }
 
     async initializeLanguage() {
-        const result = await languagesService.getLanguageByCode(this.CountryCode);
+        const result = await languagesService.getLanguageByCode(this.CountryCode, this.Language);
         if (result) {
             this.IsOfficial = result.IsOfficial;
             this.Percentage = result.Percentage;

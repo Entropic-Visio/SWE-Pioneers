@@ -29,4 +29,19 @@ const GetLanguageView = async (req, res) => {
     }
 }
 
-module.exports = { GetLanguageView }
+const GetLanguageViewWithCodeLanguage = async (req, res) => {
+    try {
+        const isLoggedIn = isUserLoggedIn(req);
+        const countryCode = req.params.code;
+        const languaugeParam = req.params.language;
+        const language = new Language(countryCode, languaugeParam);
+        await language.initializeLanguage();
+
+        return res.render('languages/languages.report.pug', {isLoggedIn, user: req.session.user, language});
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+module.exports = { GetLanguageView, GetLanguageViewWithCodeLanguage }

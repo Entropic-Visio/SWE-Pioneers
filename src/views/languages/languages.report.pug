@@ -1,0 +1,14 @@
+doctype html
+include ../components/navbar.component.pug
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneers | #{language.Name} Report 
+  body
+    .page
+      .id-card-container 
+        .id-card  
+          h1.id-card__heading #{language.Language} 
+          h2.id-card__sub-heading Country Code   
+          p.id-card__text-block #{language.CountryCode}
+          h2.id-card__sub-heading Official Language 
+          p.id-card__text-block #{language.IsOfficial}

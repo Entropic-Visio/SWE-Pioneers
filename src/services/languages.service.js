@@ -31,16 +31,16 @@ async function getAllLanguages() {
  * @param {string} countryCode - The country code of the country to retrieve.
  * @returns {Promise<Object>} A promise that resolves to the city object if found, otherwise rejects with an error.
  */
-async function getLanguageByCode(countryCode) { 
+async function getLanguageByCode(countryCode, language) { 
     // Log the desired city ID being fetched
     console.log("Country Code:", countryCode);
 
     // SQL query to select a city from the `city` table based on the given ID
-    const sql = "SELECT * FROM `countrylanguage` WHERE CountryCode = ?";
+    const sql = "SELECT * FROM `countrylanguage` WHERE CountryCode = ? AND Language = ?";
 
     try {
         // Execute the SQL query asynchronously, passing the cityID as a parameter
-        const [rows, fields] = await worldConnection.query(sql, [countryCode]);
+        const [rows, fields] = await worldConnection.query(sql, [countryCode, language]);
 
         // Log the retrieved city object
         console.log(rows[0]);
@@ -56,57 +56,7 @@ async function getLanguageByCode(countryCode) {
     }
 };
 
-/**
- * Retrieves all cities from the database and order them by population descending.
- * @returns {Promise<Array<Object>>} An array of city objects ordered by population.
- */
-async function getCityOrderByPopulationDesc() {
-    // SQL query to select all cities and organise them by the population descending 
-    const sql = "SELECT * FROM `city` ORDER BY `Population` DESC";
-
-    try {
-        // Execute the SQL query asynchronously
-        const [rows, fields] = await worldConnection.query(sql);
-        console.log(`Cities ordered by population: ${rows.length} rows`);
-
-        // Return the retrieved rows
-        return rows;
-    } catch (error) {
-        // Handle errors that occured during databasee query execution
-        console.error("Error ordering cities by population: ", error);
-
-        // Throw a new error if city retrievel fail 
-        throw new Error("Failed to order cities by population");
-    }
-};
-
-/**
- * Retrieves all cities from the database and order them by population ascending.
- * @returns {Promise<Array<Object>>} An array of city objects ordered by population.
- */
-async function getCityOrderByPopulationAsc() {
-    // SQL query to select all cities and organise them by the population ascending 
-    const sql = "SELECT * FROM `city` ORDER BY `Population` ASC"; 
-    try {
-
-        // Execute the SQL query asynchronously
-        const [rows, fields] = await worldConnection.query(sql);
-        console.log(`Cities ordered by population: ${rows.length} rows`);
-
-        // Return the retrieved rows
-        return rows;
-    } catch (error) {
-        // Handle errors that occured during databasee query execution
-        console.error("Error ordering cities by population: ", error);
-
-        // Throw a new error if city retrievel fail 
-        throw new Error("Failed to order cities by population");
-    }
-};
-
 module.exports = { 
     getLanguageByCode,
     getAllLanguages, 
-    getCityOrderByPopulationDesc,
-    getCityOrderByPopulationAsc
 };
