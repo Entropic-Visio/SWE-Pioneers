@@ -57,8 +57,11 @@ html
         thead
           tr 
             th ID
-            th Country
             th City
+            th Continent
+            th Country Code 
+            th Country Name
+            th Region
             th Population
             th District
           tr 
@@ -66,8 +69,11 @@ html
           each city in cities
             tr.active-row(data-url=`/cities/id/${city.ID}`)
               td #{city.ID}
-              td #{city.CountryCode}
               td #{city.Name}
+              td #{city.Continent}
+              td #{city.CountryCode}
+              td #{city.CountryName}
+              td #{city.Region}
               td #{city.Population}
               td #{city.District}
 
