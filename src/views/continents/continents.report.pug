@@ -1,0 +1,22 @@
+doctype html
+include ../components/navbar.component.pug
+  head
+    link(rel="stylesheet", href="/css/main.css")
+    title Pioneers | #{city.Name} Report 
+  body
+    .page
+      .id-card-container 
+        .id-card  
+          h1.id-card__heading #{city.Name} 
+          h2.id-card__sub-heading ID 
+          p.id-card__text-block #{city.ID}
+          h2.id-card__sub-heading Country Code
+          p.id-card__text-block #{city.CountryCode}
+          h2.id-card__sub-heading Country Name 
+          p.id-card__text-block #{city.CountryName} 
+          h2.id-card__sub-heading Name
+          p.id-card__text-block #{city.Name}
+          h2.id-card__sub-heading Population  
+          p.id-card__text-block #{city.Population}
+          h2.id-card__sub-heading District   
+          p.id-card__text-block #{city.District}
