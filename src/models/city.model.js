@@ -22,11 +22,22 @@ class City {
                     this.CountryCode = result.CountryCode;
                     this.District = result.District;
                     this.Population = parseInt(result.Population);
+                    console.log (this.CountryCode);
+                    const CC = await countriesService.getCountryByCode(this.CountryCode);
+                    if (CC) {
+                        console.log (this.CountryCode);
+                        this.CountryName = CC.CountryName;
+                        return this.CountryName;
+                    } else {
+                        console.error("Country doesnt exist");
+                    }
+                
                 } else {
                     throw new Error("City not found");
                 }
         }
     };
+    
 
     async getCityName() {
         if (typeof this.Name === "string") {

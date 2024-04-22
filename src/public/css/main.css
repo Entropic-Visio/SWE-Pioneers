@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .navbar__menu--links, .navbar__menu, .navbar__logo {
   display: flex;
   align-items: center;
@@ -203,7 +204,7 @@
   font-size: 40px;
   font-weight: 700;
   text-align: center;
-  color: #52AA5E;
+  color: #121212;
   z-index: 10;
 }
 .page__text-block {
@@ -278,6 +279,109 @@
     opacity: 1;
   }
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.Hero {
+  padding: 20px;
+  list-style: none;
+  text-decoration: none;
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 400px;
+}
+@media screen and (max-width: 768px) {
+  .Hero {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+}
+.Hero__hero-text {
+  width: 100%;
+  max-width: 200px;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .Hero__hero-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+.Hero__hero-text__heading {
+  font-size: 3.3rem;
+  margin-bottom: 8px;
+  color: white;
+  justify-self: flex-start;
+}
+@media screen and (max-width: 768px) {
+  .Hero__hero-text__heading {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 280px) {
+  .Hero__hero-text__heading {
+    font-size: 2rem;
+  }
+}
+.Hero__hero-text__smallText {
+  font-size: 1.4rem;
+  justify-self: flex-start;
+}
+.Hero button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 16px;
+  transition: ease 0.3s;
+  font-family: "Poppins", sans-serif;
+}
+.Hero button:hover {
+  background-color: #FFFFFF;
+  color: #2b2b2b;
+}
+.Hero__red-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 16px;
+  transition: ease 0.3s;
+  border: none;
+  padding: 16px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+.Hero__red-button:hover {
+  background-color: #f74242;
+  color: #FFFFFF;
+}
+.Hero img {
+  width: 100%;
+  height: 500px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
