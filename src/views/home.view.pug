@@ -6,14 +6,11 @@ html
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
     title Pioneer
-  body
+  body.Hero 
   .page
     div.Hero
-      img(src="images/logos/logo-file.png", alt="")
-      h1.Hero__hero-text__heading DISTRUBING THE PEACE 
-      p.Hero__hero-text__smallText 
-      |Look into my eye Now tell me the things you 
-      |blabbing about behind my back
-      |The tenacity I hold, it's hard to break down
-      button.Hero__hero-text__button  Login 
-      script(src="../scripts/globe.js") 
+      .Hero__hero-text
+        h1.Hero__hero-text__heading Pioneer 
+        p.Hero__hero-text__smallText Look into my eye Now 
+            | tell me the things you 
+        a.Hero__hero-text__button(href="/register") Get Started 
