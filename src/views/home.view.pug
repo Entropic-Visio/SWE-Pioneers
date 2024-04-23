@@ -5,14 +5,13 @@ html
     link(rel="stylesheet", href="/css/main.css")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js")
-    title Pioneer
+    title Pioneer 
+
   body.Hero 
-  .page
-    div.Hero
-      .Hero__hero-text
-        h1.Hero__hero-text__heading Pioneer 
-        p.Hero__hero-text__smallText Look into my eye Now 
-            | tell me the things you 
-        a.Hero__hero-text__button(href="/register") Get Started 
-      canvas
-      script(src="../scripts/globe.js")
+    script(src="../scripts/globe.js")
+    .page
+      div.Hero
+        .Hero__hero-text#canvas-container
+          h1.Hero__hero-text__heading Pioneer 
+          p.Hero__hero-text__smallText Painting the world with numbers
+          a.Hero__button(href="/register") Get Started 
