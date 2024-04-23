@@ -339,16 +339,18 @@
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
-  transition: scale 0.2 ease;
+  transition: 0.7 ease;
   text-decoration: none;
 }
 .Hero__button:hover {
   scale: 1.05;
   color: #000000;
   background-color: white;
+  transition: all 0.5s ease;
 }
 .Hero__buttonaction_btn:active {
   scale: 0.95;
+  transition: all 0.5s ease;
 }
 
 @keyframes fadeIn {
