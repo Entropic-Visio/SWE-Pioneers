@@ -3,7 +3,12 @@ const isUserLoggedIn = require('../middlewares/isUserLoggedIn.middleware.js');
 
 const GetLoginView = (req, res) => {
     const isLoggedIn = isUserLoggedIn(req);
-    return res.render('user/login.view.pug', { isLoggedIn });
+
+    if (isLoggedIn === false) {
+        return res.render('user/login.view.pug', { isLoggedIn });
+    }
+
+    return res.redirect('/dashboard');
 };
 
 const LoginUser = async (req, res) => {
